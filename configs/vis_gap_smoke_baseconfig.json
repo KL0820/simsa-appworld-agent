@@ -1,0 +1,76 @@
+{
+  "model": {
+    "name": "gemini-2.5-flash",
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "top_k": 1,
+    "seed": 123,
+    "candidate_count": 1,
+    "max_output_tokens": 0
+  },
+  "retry": {
+    "max_executor_retries": 1,
+    "provider_backoff_delays": [
+      4.0,
+      8.0,
+      16.0
+    ],
+    "executor_stall_backoff": [
+      16.0,
+      32.0,
+      64.0,
+      128.0
+    ],
+    "finder_max_retries": 5,
+    "finder_base_delay_s": 1.0,
+    "finder_max_delay_s": 60.0,
+    "finder_jitter_ratio": 0.25,
+    "llm_call_timeout_s": 150.0
+  },
+  "retrieval": {
+    "dependency_index_file": "api_dependency_index.json",
+    "dependency_expansion": true,
+    "batched_dependency": true,
+    "forward_dependency_expansion": false,
+    "embedding": false,
+    "embedding_model": "all-mpnet-base-v2",
+    "community_select_min_score": 5
+  },
+  "paths": {
+    "api_docs_dir": null,
+    "tasks_dir": null,
+    "executor_log_path": null
+  },
+  "cache": {
+    "dir": null,
+    "read": [],
+    "version": null
+  },
+  "debug": {
+    "rough_planner_debug": false
+  },
+  "log": {
+    "log_root": "logs",
+    "keep_debug": false
+  },
+  "impls": {
+    "FIND": "community",
+    "PLAN": "rough_skill",
+    "EXECUTE": "code_plan_execute_skill"
+  },
+  "timeout_s": 600.0,
+  "executor_timeout_s": 240.0,
+  "executor_prompt_variant": "full",
+  "code_planner_prompt_variant": "full",
+  "rough_planner_prompt_variant": "full",
+  "skills_prompt_variant": "minimal",
+  "executor_skills": [],
+  "code_planner_skills": [],
+  "rough_planner_skills": [],
+  "executor_skills_dir": null,
+  "code_planner_skills_dir": null,
+  "rough_planner_skills_dir": null,
+  "skills_root": "data/mind_skill/skills/release/thesis_final",
+  "skills_library": "best",
+  "skills_k": 3
+}

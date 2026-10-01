@@ -1,0 +1,32 @@
+{
+  "source": "AppWorld official dataset task lists",
+  "source_repository": "../appworld",
+  "source_commit": "a072b7a86e7c1d5b1d7175659d750ebb9b79f10a",
+  "imported_on": "2026-06-24",
+  "normalization": "Task IDs and order are byte-equivalent except tracked files end with one newline.",
+  "files": {
+    "train.txt": {
+      "task_count": 90,
+      "source_sha256": "93d9fe71e7a2e3b7529803d4a20b604f4ebf5ae806f321081140238068189d37",
+      "tracked_sha256": "3aad17d37dd9946e4a8a76fb30a736d435fc09a086caaef2c6354436d576ffd2"
+    },
+    "dev.txt": {
+      "task_count": 57,
+      "source_sha256": "9fa976589300ea8905708257144d801d1604b06d85fb0181e381df8a3ba85001",
+      "tracked_sha256": "b3a6059ce361c3b3ccc78b1cf54e39d437bf07e04eadd23f2cece7cde77df3c3"
+    },
+    "test_normal.txt": {
+      "task_count": 168,
+      "source_sha256": "c3af41497b6f2f0860a2ff8c09b335dca527e2cf48e59b4aabdb301b6b68db8f",
+      "tracked_sha256": "4da445edca0583840845f924f74b9d71d8d381c4c2db74a8f6515aaaede2ff0d"
+    },
+    "test_challenge.txt": {
+      "task_count": 417,
+      "source_sha256": "3c32b481042ac97f7d3477d53f5d196245c885c438d652944edc8a9a28e0f028",
+      "tracked_sha256": "d6dcdbccb8b3a860e9b88bffdfe6e5ecab7bfe2c176c3db6e42575a38546407f"
+    }
+  },
+  "derived_sets": {
+    "quick_smoke.txt": "Locally curated stable regression set; not an official AppWorld split."
+  }
+}

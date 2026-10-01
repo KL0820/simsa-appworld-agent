@@ -1,0 +1,2352 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "b402e2e6cc1567b325cdf8ad24caad4f1a9a22d2197bf528abd5de3868f1683d",
+      "bytes": 696
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "409bc13ec413527137acc8140dfc1fa062b1d601e48df23d22d7aaf2e2ed6294",
+      "bytes": 396
+    },
+    {
+      "path": "README.md",
+      "sha256": "b4664c3369d9e720d3d27f1fbb1d2b308d9a66aef29d2159048376bd089f24aa",
+      "bytes": 4756
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "e5d8e0f3fbdec4f664226cd0fce58dd76f3fa29a9b5c37621f3ba5a4da543614",
+      "bytes": 1251
+    },
+    {
+      "path": "configs/default_thin_skill.json",
+      "sha256": "73f3657744699cf9fde0734216c4d7e3ece5d6fbc895b6cb7d679b0b6481a32b",
+      "bytes": 1741
+    },
+    {
+      "path": "configs/default_thin_skill_embed.json",
+      "sha256": "f8a063009a951ac9369bb7136a88b5ff9cb4ed600661e34dc289a6e03b9ce7eb",
+      "bytes": 1775
+    },
+    {
+      "path": "configs/default_thin_skill_permilestone.json",
+      "sha256": "62fba83e6c1261cad419fbc65249bc8887372e0532533ec667ec29bf70ee4a74",
+      "bytes": 1801
+    },
+    {
+      "path": "configs/portfolio_smoke.json",
+      "sha256": "644369e628a0defe24c48444b6705d6e49fcc2b38ba2ec981aca6195552e997d",
+      "bytes": 2362
+    },
+    {
+      "path": "configs/task_sets/SOURCE.json",
+      "sha256": "47d26ae6ee68a5e2c22e38f3b15056bd536e6278a85730df7356dc286210def0",
+      "bytes": 1372
+    },
+    {
+      "path": "configs/task_sets/dev.txt",
+      "sha256": "b3a6059ce361c3b3ccc78b1cf54e39d437bf07e04eadd23f2cece7cde77df3c3",
+      "bytes": 570
+    },
+    {
+      "path": "configs/task_sets/quick_smoke.txt",
+      "sha256": "6edaab066df3079e804f28d583f0dee9f727703245a8e5c37dff85fc4000322c",
+      "bytes": 302
+    },
+    {
+      "path": "configs/task_sets/test_challenge.txt",
+      "sha256": "d6dcdbccb8b3a860e9b88bffdfe6e5ecab7bfe2c176c3db6e42575a38546407f",
+      "bytes": 4170
+    },
+    {
+      "path": "configs/task_sets/test_normal.txt",
+      "sha256": "4da445edca0583840845f924f74b9d71d8d381c4c2db74a8f6515aaaede2ff0d",
+      "bytes": 1680
+    },
+    {
+      "path": "configs/task_sets/train.txt",
+      "sha256": "3aad17d37dd9946e4a8a76fb30a736d435fc09a086caaef2c6354436d576ffd2",
+      "bytes": 900
+    },
+    {
+      "path": "configs/v2_fullprompt_noskill.json",
+      "sha256": "64f56dca6ac6f90e496769251b45df02ba602574f1feb117d12c0e6c80b9f59c",
+      "bytes": 1729
+    },
+    {
+      "path": "configs/vis_gap_smoke_baseconfig.json",
+      "sha256": "73f3657744699cf9fde0734216c4d7e3ece5d6fbc895b6cb7d679b0b6481a32b",
+      "bytes": 1741
+    },
+    {
+      "path": "data/api_graph/api_dependency_index.json",
+      "sha256": "55d7fc8906301ac26b849bca9a9cd71c1d395e2d8edd869b360234f46f8be49f",
+      "bytes": 622851
+    },
+    {
+      "path": "data/api_graph/api_dependency_index_llm_only.json",
+      "sha256": "bfb1cb6c67149803f50082b0ad7cf5d56418fc598589c81b155d42f0a5fc2b13",
+      "bytes": 466050
+    },
+    {
+      "path": "data/api_graph/app_context.md",
+      "sha256": "f1679c89aeae246fc68a1add6255af03aec50716f2526e1329ad4107176996e0",
+      "bytes": 213
+    },
+    {
+      "path": "data/api_graph/behavior_guidelines.md",
+      "sha256": "aa654003f8029785acdf9f265d937efc7b332e2781370d7156778a2147712901",
+      "bytes": 2513
+    },
+    {
+      "path": "data/api_graph/leiden_communities_with_summaries.json",
+      "sha256": "36ad9a5367de7846def1051dab3f0ff883b86d73c4dd5c2430be98f32bfd298f",
+      "bytes": 225208
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/07b42fd_1/paginated-data-collection-and-transformation/SKILL.md",
+      "sha256": "ea6836932b794f353ed184dbdb41076c1b5ea1bc65ca0246b043bd0ee3d51aef",
+      "bytes": 9072
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/07b42fd_2/paginated-single-entity-filter-action/SKILL.md",
+      "sha256": "0d45c6b3f772b5abd4dbc7755b67cf8819925b25e276177d6d850518d87efbb9",
+      "bytes": 7423
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/229360a_1/library-item-management-by-status/SKILL.md",
+      "sha256": "e9b976e3bae4b0d6b28b3ebf78d3441f68ff33d89dbcb8368b72fe394c89fe50",
+      "bytes": 3375
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/229360a_2/multi-entity-paginated-collection-chained-actions/SKILL.md",
+      "sha256": "a16f08172bae911df844cf87d133fa2345cfc3f0c7dcdb7dca55097f3f7df5df",
+      "bytes": 8254
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/229360a_3/conditional-resource-cleanup/SKILL.md",
+      "sha256": "4161e55f916f631fc7cbc37f79f4c2d4f4bbe4373f08bb4bfa7e194a630b2a4c",
+      "bytes": 3362
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/22cc237_1/filter-list-by-external-conditions/SKILL.md",
+      "sha256": "f531c5d85135e5ed06ae55d604047d56d353003b8dc9c8fad20ce045f142ee41",
+      "bytes": 5603
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/22cc237_3/build-unified-list-from-multiple-sources-then-act/SKILL.md",
+      "sha256": "c8074c686ea399745546da599c779a95e61384444e167a86eeb86943bd4e7a44",
+      "bytes": 4041
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/27e1026_1/multi-source-extreme-value-item-selection/SKILL.md",
+      "sha256": "1f93236b68341911c4943a81292f6680ea82cfb2d127e507fbef9eba5e270b09",
+      "bytes": 4385
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/27e1026_2/multi-source-extremum-finding/SKILL.md",
+      "sha256": "3a44531635364ee4570e7537330c45c13322dd304bc99e183cb4f82bf62f99f8",
+      "bytes": 3961
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/27e1026_3/paginated-data-extremum-or-summary-aggregation/SKILL.md",
+      "sha256": "509b744210ecd77329dbcd14ad0f277936af1d500731d08c26ddc8f5f0ad9819",
+      "bytes": 8538
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/287e338_1/paginated-nested-aggregation/SKILL.md",
+      "sha256": "3e404719998e32e680570e553a1ffe87060b9e8d33cc0f1f266efdf6c419cce5",
+      "bytes": 3817
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/287e338_2/paginated-nested-attribute-extremum-count/SKILL.md",
+      "sha256": "ac0f01f82b15873cfd8cdb89067451703b1bae77bc69773f1f51d5abbdd5d94c",
+      "bytes": 3814
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/29caf6f_1/chained-data-lookup-and-reply/SKILL.md",
+      "sha256": "aace50c5af817a2d50d48302229e0abb2f56ae2528ce65567ac9e9c7af53dfb4",
+      "bytes": 3385
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/29caf6f_2/multi-source-id-aggregation-for-single-action/SKILL.md",
+      "sha256": "3086e8c7ddca95200909c7ea5685d0d7b585d184de6858261405e14eaa40c22f",
+      "bytes": 4630
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/302c169_1/collection-conditional-split-action/SKILL.md",
+      "sha256": "75fa9548fe033328e51476634c41b4a913ec3a04483f89363aaa054dc5aef01d",
+      "bytes": 5804
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/34d9492_1/iterative-classification-and-action/SKILL.md",
+      "sha256": "57f2b2bc091616eaaf789565dddb6085e3f9f34e0763baf3230131ce19c44cc1",
+      "bytes": 3117
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/34d9492_2/organize-files-by-metadata/SKILL.md",
+      "sha256": "4cb76d7907810fae091a65759e8682a396087e8564abe30185ae8cbdd44a57c6",
+      "bytes": 5089
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/3c13f5a_1/iterative-payment-request/SKILL.md",
+      "sha256": "dee52417262e7fb36e2ab532ae821fde201976fcb0e39b0f314242ed497ad409",
+      "bytes": 3347
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/3c13f5a_2/iterative-action-with-precalculated-values/SKILL.md",
+      "sha256": "add99a55d62e602e02ff632f23ada42cda5da968b1bc9b5c2c5ca3147d6f9a6c",
+      "bytes": 2834
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/3c13f5a_3/multi-source-chained-parameter-derivation-action/SKILL.md",
+      "sha256": "c679595114f4a7c9645b514a4f8e7cd59d0a773dd205787d3e271babe3172193",
+      "bytes": 4477
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/60d0b5b_1/paginated-data-refinement-for-iterative-or-lookup-actions/SKILL.md",
+      "sha256": "585a5bf096c67b2e59186e506bae07d958f0d91b9a287771e62ae5af2de98069",
+      "bytes": 12426
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/60d0b5b_3/multi-step-transaction-action/SKILL.md",
+      "sha256": "74c3beac50e571ca5a97fe00f534b6b3755fcf2a8a58e4812d1ece785ef2b2b4",
+      "bytes": 5062
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/6104387_1/multi-source-data-export-with-conditional-post-action/SKILL.md",
+      "sha256": "644acdcec2c298911e808f792f965283eef1e9396c58e1833127cdae6df3d006",
+      "bytes": 4791
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/6104387_2/multi-source-data-export-then-unconditional-final-action/SKILL.md",
+      "sha256": "f46a2f88dbf83b36e783cf57a2e0d80d9554fb535893f6ed052a6ce4a8983633",
+      "bytes": 5283
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/692c77d_1/conditional-data-update-or-create/SKILL.md",
+      "sha256": "cbbaa164a0e7bc03b139e8577ee4aa26b051b1a385439dd36fb88981892a6de9",
+      "bytes": 3792
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/692c77d_2/conditional-record-upsert/SKILL.md",
+      "sha256": "6139672c595eefc04f47d960391d8af83c112c900855d5e5a353e25e4c91983e",
+      "bytes": 3357
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/692c77d_3/conditional-data-modification-workflow/SKILL.md",
+      "sha256": "6ad5f9cadfee47e0805634096fc17eaf4c4f9cf9e659c43c4a393734a493a823",
+      "bytes": 3059
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/6ea6792_1/multi-step-action-with-conditional-fallback/SKILL.md",
+      "sha256": "23baca1c2f830c69221628dba3f7ac5837b7449d76c2d7d75a9235d2b4475eb2",
+      "bytes": 2812
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/6ea6792_2/multi-source-criteria-to-conditional-target-action/SKILL.md",
+      "sha256": "ac8b4d497c26361c0a89a3ea4bbffe48d2d4dd693deb87c40bf972aa1870709c",
+      "bytes": 3968
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/76f2c72_1/file-system-data-aggregation/SKILL.md",
+      "sha256": "7fcbd15535a17ebfb953cd045b0719c2511f95abf67aef555a896b623c137db0",
+      "bytes": 6466
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/771d8fc_1/paginated-search-and-delete/SKILL.md",
+      "sha256": "1b1afcfa8ecbdd6a3a6188b56f1d6fd13e9faf8496977b19a17632df2e4c87e9",
+      "bytes": 3206
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/7d7fbf6_1/batch-directory-transformation-and-cleanup/SKILL.md",
+      "sha256": "34a2b47813bdbf9fd89eec06bea28e5439a98ad4b211d32ee095c19b27ac103c",
+      "bytes": 3517
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/7d7fbf6_2/file-system-directory-processing/SKILL.md",
+      "sha256": "9bd347b44e8997fac69068038d25e228b82b66e4d186babeffb31e1899356082",
+      "bytes": 4210
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/7d7fbf6_3/iterative-file-system-action/SKILL.md",
+      "sha256": "fe68d0324976cf1d870d78c3e5851c1a6d7470d449a4fe116f43c305ce9261a0",
+      "bytes": 3458
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/82e2fac_2/paginated-data-enrichment-and-optional-action/SKILL.md",
+      "sha256": "2b8227619bc1f61b91e1e3d62daa2198e41065e2bcbfbb526ce5036257168e2d",
+      "bytes": 6319
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/aa8502b_1/iterative-action-with-idempotent-handling/SKILL.md",
+      "sha256": "c6ab6da4b6c8210feef88d81885c1191d629a10a6d0ec653cb735420e831bd70",
+      "bytes": 3040
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/aa8502b_3/iterative-state-modification-with-categorized-reporting/SKILL.md",
+      "sha256": "d9790126ede2caf431109533ab342eb1a2bdb0fdb6a23ffe253fe0d4776255b1",
+      "bytes": 3357
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/afc0fce_3/batch-action-on-list/SKILL.md",
+      "sha256": "bc418f2ea9ff1116f31f423451f7ed4769276160ccaafd1e22025c9c48882233",
+      "bytes": 2515
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/b0a8eae_1/multi-system-conditional-item-action/SKILL.md",
+      "sha256": "ce823664462ed3e9bdf4ebb2f4115399c10e0a8488573d61223ef5dab50f194a",
+      "bytes": 3932
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/b0a8eae_2/iterative-enrichment-and-conditional-selection/SKILL.md",
+      "sha256": "16074ff89ba4d0a19401e49bc3c4d38aa709249d4513318a7f431303372b2d12",
+      "bytes": 3533
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/b0a8eae_3/collect-and-process-items/SKILL.md",
+      "sha256": "8f9ef7a68e5288f5391795dc92faca614b6b1571e953dc4fa75bf7d1bbdbbdc6",
+      "bytes": 3511
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/b7a9ee9_1/derived-entity-action/SKILL.md",
+      "sha256": "cb3a248eee487aef2ffba4437cf6d35dd59f5404353970d0fbdbe3edd90436af",
+      "bytes": 3485
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/c901732_1/find-extreme-value-in-paginated-data-with-lookup/SKILL.md",
+      "sha256": "f2f150f994151401056ca1e89bc7b18f67b1840541aa6bad231fb9a2fb6ef2f8",
+      "bytes": 5491
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/c901732_2/dynamic-api-action-with-data-prep/SKILL.md",
+      "sha256": "1d134c93b97a4f71a9d400aee5408c2f1f9ccae84d4bcf9fbf71f1903bc3a3f4",
+      "bytes": 3351
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/c901732_3/identify-and-act-on-extreme-metric-item-in-collection/SKILL.md",
+      "sha256": "a38a895d47a9ec9450cdc6e008b0ad0ba6c7469775158738ce28e07132b72142",
+      "bytes": 3146
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/ccb4494_1/filter-list-by-derived-reference-then-act/SKILL.md",
+      "sha256": "8dd8b76d35e5fa6886463e61816e5b8097ca8feaaa3f0af70eb95d1c26bca436",
+      "bytes": 6778
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/ce359b5_1/paginated-data-enrichment-and-conditional-mutation-with-caching/SKILL.md",
+      "sha256": "e7cc22284644498d94d9b4249e75ba441adad11b9be9b5f916f78b5dc9d55b26",
+      "bytes": 3661
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/ce359b5_2/perform-targeted-removals/SKILL.md",
+      "sha256": "f62be7a4942f72a0e9d660c6153194cae85a51fca960856f0fc85d6cbca68fe8",
+      "bytes": 2300
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/cf6abd2_1/resource-search-transform-update/SKILL.md",
+      "sha256": "feaa1aca1df8a598c9987b97af90f5768de2ebfba404c2905e33b182923b152b",
+      "bytes": 2976
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/cf6abd2_2/multi-step-content-modification/SKILL.md",
+      "sha256": "9d1069ec547e2c3f61f3b77013e7ea61b130e8e4b32b51a82e166f7550ad7557",
+      "bytes": 3463
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/cf6abd2_3/update-item-in-text-note/SKILL.md",
+      "sha256": "cc8650f6ae9520e0097a20f9539399141f7c8894d3bfa9b2247a2acfd98bcdf7",
+      "bytes": 2816
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/e3d6c94_1/create-and-populate-resource-from-filtered-data/SKILL.md",
+      "sha256": "dfeedbadd29bbb233c9f0d652220bac272f1b7fd13667ed44d9d9e1fd464e49b",
+      "bytes": 4815
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/e3d6c94_3/filtered-data-to-target-collection/SKILL.md",
+      "sha256": "74656d0881026fb0574e14b0619936f488e4ca95046b7f927d76426a2744bc31",
+      "bytes": 3449
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/e7a10f8_2/multi-step-data-aggregation-and-transformation/SKILL.md",
+      "sha256": "2a7906b141fb9525a149419077cedac759f38e61a240134abce2ae1575d5d610",
+      "bytes": 3484
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/e7a10f8_3/paginated-detail-aggregation/SKILL.md",
+      "sha256": "36f3c960d17a629a7e0e8bc309917dfe6065f399fc4c9329ee5c2b384c367d6f",
+      "bytes": 3412
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_executor/best/e85d92a_1/entity-lookup-and-sub-entity-aggregation/SKILL.md",
+      "sha256": "2ae80e13b324758d5524a9473354ee3b8d3b1e0996362695526c5a18c2aa409e",
+      "bytes": 3064
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/07b42fd_1/paginated-filtered-iterative-action/SKILL.md",
+      "sha256": "a6fdfb2b2f0c82f14d3d4ca1fe4ebc1cc7b7843ae66454a8e3dc326842826e24",
+      "bytes": 10243
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/07b42fd_3/collect-filter-deduplicate-and-perform-chained-actions-on-entities/SKILL.md",
+      "sha256": "39a282804299fcdc63634584e03bbd31fca02830379447b2e7222990e42ac58e",
+      "bytes": 7787
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/229360a_1/conditional-item-cleanup/SKILL.md",
+      "sha256": "1a8746cf9d0e07ddb0be3cd758e81b829b8c55725faf09b06619052b5748388c",
+      "bytes": 4143
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/229360a_2/filter-and-act-on-collection/SKILL.md",
+      "sha256": "2fa25bac705281b27905ada0ec3ddccba23c385f1375b97d5afab54a50e900fa",
+      "bytes": 3656
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/229360a_3/library-status-filter-mutate/SKILL.md",
+      "sha256": "65cd1ac21473a7367ff6f795094b9c5e48fd4f2e99121675c6617d456306e4de",
+      "bytes": 4106
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/22cc237_1/multi-source-conditional-action/SKILL.md",
+      "sha256": "1bddceac7b73db7151ece1236317b08d40e86b95b1f6b8f3a599a8a7563eda5a",
+      "bytes": 7681
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/22cc237_3/retrieve-filter-and-perform-conditional-action/SKILL.md",
+      "sha256": "eeae58530212ba41cc865a784b101c707a6e80690da94ab80aac8d242c82660e",
+      "bytes": 8731
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/27e1026_1/aggregate-and-find-extremum/SKILL.md",
+      "sha256": "39231d6979050493e859ac37ec303960668a0aaedcacb148c306e3a36b073926",
+      "bytes": 4652
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/27e1026_2/multi-source-entity-aggregation-and-extremum-finding/SKILL.md",
+      "sha256": "6f10e8c474594a05ce3574cc7a10a37857bcd83b7681d87e73b6a5ecc2ad4662",
+      "bytes": 3718
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/27e1026_3/find-extreme-item-with-attribute-normalization/SKILL.md",
+      "sha256": "ec914214ca1f9c937c5c697e9ec5717e3cea63ccd2aa0d11eb227df271bca188",
+      "bytes": 2819
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/287e338_1/paginated-frequency-analysis/SKILL.md",
+      "sha256": "c89a46b97b8ec7f279156d5bbc0831a1621fde053f0a11d9a6a4ae29b760ab36",
+      "bytes": 3140
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/287e338_2/aggregate-and-find-extreme/SKILL.md",
+      "sha256": "1519c5882ec08fdc8d2bf0b1ef82ede43ef01c9528cb53da4dcf43cc549b0728",
+      "bytes": 2648
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/29caf6f_1/chained-information-retrieval-and-response/SKILL.md",
+      "sha256": "a6a8852f584bbdd2b4e4bdf806c4dbcec3ea443fd55dd0fa7f486a3c49810e9f",
+      "bytes": 4162
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/29caf6f_3/multi-step-data-flow-with-external-action/SKILL.md",
+      "sha256": "3a8440b13b8b1fd073cfcfcdda87635b53297dc6cf14edc8687aef58efdbfc80",
+      "bytes": 4294
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/2a163ab_3/filter-paginated-feed-by-time-and-entity/SKILL.md",
+      "sha256": "b1f740c400b3a5a2ced82d864d9f736dd915cf025e0d52da4797d853aecf9287",
+      "bytes": 3071
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/302c169_1/filtered-collection-mutation/SKILL.md",
+      "sha256": "8266bb8554775271c2d3193fd4ab24b95ceeff5e8a80f06cdae023156ee76881",
+      "bytes": 3713
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/302c169_2/conditional-batch-update/SKILL.md",
+      "sha256": "0ffbeca7cadbf9c607ed96b0aca26fc3b96707fb156538a96776d1e0cae4fcac",
+      "bytes": 4259
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/302c169_3/categorize-and-batch-update/SKILL.md",
+      "sha256": "671f287a3ee331fff9b2139b7dee4866a29da1217dcabd6ad98541b1b014e64f",
+      "bytes": 3264
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/34d9492_1/organize-files-by-metadata/SKILL.md",
+      "sha256": "467839876e0cae8a3f9dd92abea617349b10e15e229b5445c55d31bf2c07fe05",
+      "bytes": 5056
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/34d9492_2/file-system-organize-by-attribute/SKILL.md",
+      "sha256": "d5747e462da5c4b49648f6a535b498ca1f04cf3484ae8a45ab1194d947f99135",
+      "bytes": 3247
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/3c13f5a_1/split-payment-request-exact-share/SKILL.md",
+      "sha256": "d2459521e6b8d60d2240fad4a7b4d3dacdefe678ea66f61950c350d376c86ebe",
+      "bytes": 3343
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/3c13f5a_2/split-payment-request-rounded-share/SKILL.md",
+      "sha256": "3145600ea6eb5768f2cc3a91c87a1e62eee72b29282b7757f4449247a2031b68",
+      "bytes": 4693
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/3c13f5a_3/shared-expense-request/SKILL.md",
+      "sha256": "dd3d2ef252e5a44c531aa45355aec819e2e63127a8a53ea2a1f82c8e587922db",
+      "bytes": 4268
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/60d0b5b_1/identify-retrieve-mutate-entity/SKILL.md",
+      "sha256": "a3bab7cb2ef1fdda7533cfd0632571d1545313beb8e36fc79bba3c790fe42572",
+      "bytes": 3842
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/60d0b5b_2/identify-and-process-specific-record/SKILL.md",
+      "sha256": "d11048df12c889871acff2ecb2af7b93e4833cfc55eee7df46b9c62d80691dd6",
+      "bytes": 3492
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/6104387_1/multi-source-data-aggregation-and-export/SKILL.md",
+      "sha256": "326807baa51e6cbe0d21bf8948f2e369b45ceda7f3f3cbeb0485c4cbafc08a9e",
+      "bytes": 5248
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/6104387_2/perform-final-irreversible-action/SKILL.md",
+      "sha256": "941431ba380b29511e13b72ca5b971fc3718f0f20c09d995476ccb5349b651c4",
+      "bytes": 2016
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/6104387_3/multi-source-data-aggregation/SKILL.md",
+      "sha256": "80d44a31c07477f0cef6c51ef1d1071fe1b4a6e5bee4370e9dd9a2dfffaa49c0",
+      "bytes": 3148
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/692c77d_1/conditional-resource-upsert/SKILL.md",
+      "sha256": "e57d36bff7a2e80550bf85ec11ca5c6151c6a4cdd2ed5b5e72b5bd82eadebaca",
+      "bytes": 3230
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/692c77d_2/conditional-item-mutation/SKILL.md",
+      "sha256": "e6a46098dc69d151c794cd60446033cc6e9f1715a99c7a439c333a514385d730",
+      "bytes": 3159
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/692c77d_3/multi-source-intersection-enrich-and-mutate/SKILL.md",
+      "sha256": "ce1a3d4561eaab28a4c454d4eb5463208685eebb182b63b481f60f5a87363241",
+      "bytes": 3570
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/6ea6792_1/iterative-action-with-conditional-fallback/SKILL.md",
+      "sha256": "0b37ad014f5dde2901d3e3bb4a34c3158a29160705327b134a4fca6000c2caae",
+      "bytes": 3099
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/6ea6792_2/cross-source-match-and-act/SKILL.md",
+      "sha256": "1285322fe9dfd858f6357defb2244dd0d2c7589fe04b4061e7ba956de539f7ca",
+      "bytes": 4125
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/6ea6792_3/filter-and-act-on-related-entities/SKILL.md",
+      "sha256": "0d94021eaeb71630a1bfcf83b86e169632fc14c78050d654de38c32ce6140f53",
+      "bytes": 4344
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/76f2c72_1/aggregate-filtered-collection-data/SKILL.md",
+      "sha256": "5891c024d264919e9a7c829c51de8708fb385d3c265c9618b21364c6d53e2c0d",
+      "bytes": 3973
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/76f2c72_3/data-extraction-and-aggregation/SKILL.md",
+      "sha256": "2517bf3345b33ae2e3b411db173a5be62b4eaf10fe3d7144e95e0fc8019b0c96",
+      "bytes": 3168
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/771d8fc_2/bulk-delete-by-sender-identifier/SKILL.md",
+      "sha256": "e43bdd421bf5e3e64d7679ec3bab10d9fa79d3ad163fa9e4c6ab020d19aafbf3",
+      "bytes": 4351
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/7d7fbf6_1/iterative-process-and-cleanup/SKILL.md",
+      "sha256": "f20cbb69ec10395cfd6fdf00d834877356c0d8c7d33a4ff60f9817d7c2e85d3b",
+      "bytes": 3876
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/7d7fbf6_2/file-system-transformation-workflow/SKILL.md",
+      "sha256": "db6f38224671ec2471bdc49592f820d678487e881bc5f647d57cf2bf03315703",
+      "bytes": 3941
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/7d7fbf6_3/batch-process-and-clean-up/SKILL.md",
+      "sha256": "ede9b28f73bf4c44d47957c32e2651225f23117ebb7e0f6fe516e64dec4fea5f",
+      "bytes": 4001
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/82e2fac_1/find-max-attribute-from-aggregated-details/SKILL.md",
+      "sha256": "935b62de097ac72a70821fb3b335fdfde1afa444f8e1ddcc584220bf5b9edaf6",
+      "bytes": 3391
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/82e2fac_2/find-extreme-item-from-workflow-data/SKILL.md",
+      "sha256": "08e57bd37023a5aa4a35e7e32fc6855ff192ffe911a5ffbec7e7c1e9addc16eb",
+      "bytes": 2714
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/aa8502b_2/set-comparison-conditional-action/SKILL.md",
+      "sha256": "d3a6282c4c49e9a14e7bc6154989d6dae3d04826e8596539135238767318c03a",
+      "bytes": 3725
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/afc0fce_3/perform-batch-action/SKILL.md",
+      "sha256": "4d6a5082a784009fc9b6d06a92006c31492677873cd4a374cdf6226a0f40acd0",
+      "bytes": 2474
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/b0a8eae_1/conditional-selection-and-action/SKILL.md",
+      "sha256": "042e0fe1a7469472553fd5183781edbdc627aa507baf9444499483e317a6cb4e",
+      "bytes": 3179
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/b0a8eae_2/select-and-act-on-collection-item/SKILL.md",
+      "sha256": "ad09ba7df095daf2f375ca91069da6cd5edb299dc74a12619a47693733af792e",
+      "bytes": 3272
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/b0a8eae_3/search-and-extract-from-content/SKILL.md",
+      "sha256": "90c23b22a270e38aa3d029a48d54eff1607844990a9087bdf424720e4fc157d0",
+      "bytes": 2207
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/b7a9ee9_1/iterative-side-effect-execution/SKILL.md",
+      "sha256": "8e4c152539b19a269b0fc3ca53ea04224fc5b7d340097700968303a03b5a1449",
+      "bytes": 2305
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/b7a9ee9_2/chained-data-processing-and-mutation/SKILL.md",
+      "sha256": "3f6ba52f8230f1cc3130745b1dead9726e841b25dfabe32fe4efbde71ab7516b",
+      "bytes": 3794
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/b7a9ee9_3/chained-entity-processing-and-action/SKILL.md",
+      "sha256": "97bb201c8658901e9a78e96e9d1dbd7f31a8f65a0d2a3754ac96e24e910ff131",
+      "bytes": 4187
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/c901732_1/retrieve-filter-aggregate-then-mutate/SKILL.md",
+      "sha256": "ce9e9f4f3694acc3fbd81c941ad5979ce38747a2a3dfaf8ce878fe725e1918dc",
+      "bytes": 3239
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/c901732_2/find-best-item-and-act/SKILL.md",
+      "sha256": "b2a35cd16be8db3fb240745a232d914c76e4ddc21826d638c558daa3f567bbaf",
+      "bytes": 2972
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/c901732_3/execute-action-with-prior-target/SKILL.md",
+      "sha256": "b4d4588b5185af3297d9363e4769c22b8572455500efcd8d6bf175e53df71ea9",
+      "bytes": 2349
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/ccb4494_1/filter-list-by-internal-reference-and-act/SKILL.md",
+      "sha256": "e1ede2fdad70ff4978b2920015c59154bda1c9f926fbfd07b1a8676e7e9cd1e0",
+      "bytes": 3887
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/ccb4494_3/filter-list-and-batch-mutate/SKILL.md",
+      "sha256": "d97cfca84bfcaa7e3049fae33f587d989baa196edcda237a15a4be1d4e8f3bc4",
+      "bytes": 3074
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/ce359b5_1/data-enrichment-and-filtered-mutation/SKILL.md",
+      "sha256": "62ab529960d09cf365ffe6a3b82cfeef8aedd43c5479c9ce7bf65938dd4ad2a9",
+      "bytes": 5309
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/ce359b5_3/conditional-resource-mutation/SKILL.md",
+      "sha256": "c28b02d44c3e32bb8044e8d31585984fa28c720622e8f04a822364b8192344ab",
+      "bytes": 3140
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/cf6abd2_1/find-retrieve-modify-update/SKILL.md",
+      "sha256": "4e0250b57cd4b1d6679b419dfb3afe68583260e9cd6b8b89901e20900f7efd91",
+      "bytes": 3256
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/cf6abd2_2/find-parse-update-text-content/SKILL.md",
+      "sha256": "9cbdf8a5dd48b882ec527e4496f8ad1ea8006073114a4f72edc35d6f7ce76af1",
+      "bytes": 2512
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/cf6abd2_3/find-and-update-content-item/SKILL.md",
+      "sha256": "3c5a525e4a1c05e20864ca4516bd04ace6c448c89ec94ec39852533c591fbd99",
+      "bytes": 3013
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/d0b1f43_1/chained-paginated-data-aggregation/SKILL.md",
+      "sha256": "2137aed8100104d7fdd2cb4f39868a74333b7475a47d55562351556bd03e0b14",
+      "bytes": 6324
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/e3d6c94_1/collect-filter-create-populate-container/SKILL.md",
+      "sha256": "7bbe31f3a62542a64849a3ea1a71b6a8cc85fe31dcd57bd69fd8df64bcd0a2b7",
+      "bytes": 4001
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/e3d6c94_3/paginated-data-filter-create-mutate/SKILL.md",
+      "sha256": "7d5bb1af3cfae5fcd51afe6df594832e7f2bb72753d363b398f785c86e563823",
+      "bytes": 3978
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/e7a10f8_1/paginated-list-detail-extremum-aggregation/SKILL.md",
+      "sha256": "1928c5519e290cd64d4e1b37647eda7903554ffa2f00dad745cf99d320600b8f",
+      "bytes": 4382
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/e7a10f8_2/process-prior-data-find-min-and-transform/SKILL.md",
+      "sha256": "b29d908ac3ccdd613a0a9ac6e3e96e0adf4bd1cdc3e203c085727f7aa76313df",
+      "bytes": 2264
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/e85d92a_1/search-filter-paginate-max-extract/SKILL.md",
+      "sha256": "ce1a28663257f64876afcb97922235cd1eaa768512edaffa1135f58d0dfed601",
+      "bytes": 3938
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/code_planner/best/e85d92a_2/find-extreme-value-in-related-paginated-collection/SKILL.md",
+      "sha256": "551a9d79222e8a56c162eff2044a041bce2b57c8f476be6d66a0cbd3e0bfdd47",
+      "bytes": 4344
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/07b42fd_1/identify-then-act-with-constraints/SKILL.md",
+      "sha256": "83d2ba86b8758c1c686ecdaca7a678c96e068663a1166de4ae3c0b8f4d6f2020",
+      "bytes": 1926
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/07b42fd_2/read-filter-then-act-on-collection/SKILL.md",
+      "sha256": "604077acbdcfd6826e3fe22a311c637c0ecae5e577909f4b53036421e0c7b959",
+      "bytes": 4056
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/229360a_1/multi-collection-retention-filter/SKILL.md",
+      "sha256": "971927f94128c146fda42454fb513a409641a598cd377f6f564db8f99743d015",
+      "bytes": 2493
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/229360a_2/multi-collection-recursive-cleanup/SKILL.md",
+      "sha256": "3e53c92730c9d113a52d12b97a166c4b0f3baeb43277abe2fde8846324dce938",
+      "bytes": 3002
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/229360a_3/conditional-collection-pruning/SKILL.md",
+      "sha256": "002cee5ecea202d0278d7f45b30c5b61eb69bbfd12bbd9f4b1fd1168b62d803b",
+      "bytes": 3230
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/22cc237_1/multi-source-involvement-filter-action/SKILL.md",
+      "sha256": "1bb6a5cfa612660f753e1cc2e3e2ce6a5428650e8ff91bba5435c11de499024c",
+      "bytes": 4669
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/22cc237_2/multi-source-conceptual-id-action/SKILL.md",
+      "sha256": "2f9c381ca15b9c4d5b031d9454b5cce03f842800dbf01da524a50ad0c2260b90",
+      "bytes": 3248
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/22cc237_3/filtered-action-with-identity-resolution/SKILL.md",
+      "sha256": "96c24da44139bceb014b507aded6f479ec4e0c8b2cb88131f327a0bea5776d41",
+      "bytes": 3330
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/27e1026_1/multi-source-disparate-extremum-finder/SKILL.md",
+      "sha256": "9c5e93fe4b46f5fe4f1881c4b4f68edaeb11bee0b94fc8de421c3caab5ccdec7",
+      "bytes": 2722
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/27e1026_2/multi-source-related-extremum-finder/SKILL.md",
+      "sha256": "e1f371a6ee89f725c56df91bb3a3123488fd820b6f37e8cae9a485f411fdbc3f",
+      "bytes": 2813
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/27e1026_3/collect-then-process-multiple-sources/SKILL.md",
+      "sha256": "4f25fc0e3fdf9ca397df417844a173f5765c2dc43fdd5702cd450766695e1040",
+      "bytes": 2106
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/287e338_1/single-app-atomic-value-derivation/SKILL.md",
+      "sha256": "a9561a91d3ef3132154f187f04f28d9d42516ae671c881152cea1e95099f96cb",
+      "bytes": 2852
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/287e338_2/find-entity-by-extreme-count/SKILL.md",
+      "sha256": "fa56b265ef929c899932c2838120bd97d969dde84a9b4da3039b97f379dbf228",
+      "bytes": 2140
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/287e338_3/single-source-single-value-extraction/SKILL.md",
+      "sha256": "fe0776fd7cdaa1b9037000c88047b944afaee13ceb5825f402d8f0397607dbff",
+      "bytes": 1613
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/29caf6f_1/respond-to-request-with-filtered-data/SKILL.md",
+      "sha256": "8829cb11b398d024f94e0ed28b65819545dbc4ac8ca24dbb627340a9325a0636",
+      "bytes": 2316
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/29caf6f_2/resolve-entity-then-process-data-and-act/SKILL.md",
+      "sha256": "937452c4c89daa0327aa669d608148c4aaa2a88bdde1e110b91d1f0f9f0e25e4",
+      "bytes": 4148
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/29caf6f_3/resolve-request-respond/SKILL.md",
+      "sha256": "5ba9a1325d82f4647a3738553089b97280e5415e208fb471e2417ea65f6c4744",
+      "bytes": 2691
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/2a163ab_1/resolve-group-filter-and-iterate/SKILL.md",
+      "sha256": "515bc6907c1239e91767f67ee9ace9ee84413769566c1c6789f45420a6f3b7c0",
+      "bytes": 3029
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/2a163ab_2/resolve-concrete-identity-filter-and-act-per-item/SKILL.md",
+      "sha256": "9f3f64ecc6bba556e8f3238420776fef2c558e48478917024fc2b6aac207e461",
+      "bytes": 4778
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/302c169_1/identify-and-act-on-target-and-complement/SKILL.md",
+      "sha256": "65e29d91897923abc0f8acd4bf5a7dac2c373be3ba1d2ff3e943deaf815c36c1",
+      "bytes": 3242
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/302c169_2/differentiated-entity-actions/SKILL.md",
+      "sha256": "6170ee49a2c2aecd505ff217fc56a792163055f910a1654e543836565b3b7abd",
+      "bytes": 2179
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/34d9492_1/classify-and-act-on-groups-with-predefined-destinations/SKILL.md",
+      "sha256": "b60a97bf2b370cc5ddbcfe643b7eaef60779786c76ce89abf01ef7d5193f8a18",
+      "bytes": 4592
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/34d9492_2/read-then-act-on-state/SKILL.md",
+      "sha256": "0792b32792971c02110c56c2d788aeddb20dd5e99d85a2be6a7ee4df184051ef",
+      "bytes": 2168
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/3c13f5a_1/resolve-recipients-calculate-and-distribute/SKILL.md",
+      "sha256": "43392c847c3fea6793c4588531b98a606831c4cbb2992b64067f1f8f66aca1fe",
+      "bytes": 2814
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/3c13f5a_2/multi-recipient-shared-cost-request/SKILL.md",
+      "sha256": "ea88c13f66521dadf4597b03e2c02c19316ccdfa566546d3d8ea0d369583b96e",
+      "bytes": 3754
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/3c13f5a_3/group-cost-allocation/SKILL.md",
+      "sha256": "e379801cc42e91cfbb08a691011759f0f02205c9f196b687e31df5f5184694d8",
+      "bytes": 2646
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/60d0b5b_1/resolve-identity-read-value-then-act/SKILL.md",
+      "sha256": "9981decefc3c6564c3bd9b479def2e11b732519fb5764fb4769a7877eefc7aa8",
+      "bytes": 3180
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/6104387_1/multi-source-export-with-dependent-action/SKILL.md",
+      "sha256": "7e5abff0efe6fd6d3687753a288ad523b155ac84fcbb82abbbef3b95a9877dab",
+      "bytes": 4708
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/6104387_2/multi-source-backup-then-destroy/SKILL.md",
+      "sha256": "cf5d286b8b26e560d3129bdbcd36c895a49040d6e939d39737d23d4c8e1bcbbc",
+      "bytes": 2419
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/692c77d_1/read-filter-then-conditionally-act/SKILL.md",
+      "sha256": "c91bd91f1fa25c846809b1e4cb1916c1435445b7d542b9fae2bbcea4b6f442d6",
+      "bytes": 4286
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/692c77d_2/read-filter-act-on-collections/SKILL.md",
+      "sha256": "43de2a270fe4dbd51aa0ada4c29b434369ffc05c89e653fd045f7d5b65212b4f",
+      "bytes": 3674
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/692c77d_3/conditional-property-update/SKILL.md",
+      "sha256": "f1ac160251c64aa2a27b4285fcfff6752fadb2c1cdcc9de6cd4cc2bc366f89d6",
+      "bytes": 2212
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/6ea6792_1/constrained-iterative-action/SKILL.md",
+      "sha256": "c7b846d69f54c47480d7915abfa9f6977cb98b313438db2bf1ed21849d9868df",
+      "bytes": 2731
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/6ea6792_3/resolve-group-identity-filter-and-multi-act-on-set/SKILL.md",
+      "sha256": "7f4173ccee9f88351e604b963efc6554efd5a38d5b5bfd02357880ea1c96c90d",
+      "bytes": 4681
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/76f2c72_1/single-source-filtered-aggregation/SKILL.md",
+      "sha256": "4adf3c64acd5ac8af8dcf555c6fa1361ff60dc0d8a754740e701ade5b095b55b",
+      "bytes": 3897
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/76f2c72_3/filter-extract-aggregate-from-collection/SKILL.md",
+      "sha256": "068a75ed0c8f6de22f5b56bd253c5dcbe12beecb107d424eea754713e9f8c271",
+      "bytes": 2044
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/771d8fc_1/multi-target-filtered-action/SKILL.md",
+      "sha256": "1528a7d33b1cc38951c3d4f466a4bd33cb6138432fa7de37a706a8b10883de4f",
+      "bytes": 1902
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/771d8fc_2/resolve-identity-then-categorize-actions/SKILL.md",
+      "sha256": "12c335e7cea41448d2f56db7283cdf0b5459aca22a82484e61707ff9532c2ada",
+      "bytes": 2057
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/771d8fc_3/identify-then-categorize-actions/SKILL.md",
+      "sha256": "cbd63fa5d5aba19871adacc582469793d34af175af04544a7868f6598a319398",
+      "bytes": 2283
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/7d7fbf6_1/enumerate-transform-delete-sequence/SKILL.md",
+      "sha256": "5d9bbf023b766a0a805a100c5c98cca595b81ff5e0d276ec62f4f8324cf4b050",
+      "bytes": 3033
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/7d7fbf6_2/discover-process-cleanup-entities/SKILL.md",
+      "sha256": "e73d4efb6809463acb26b481915107bf0435869378b5f7ab15cc4e906a269d8f",
+      "bytes": 2197
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/7d7fbf6_3/list-then-iterate-and-modify/SKILL.md",
+      "sha256": "bc44fdea359f146741e6bb8cbdd47734858558a7ab5488642ec0e147dad3d154",
+      "bytes": 2273
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/82e2fac_2/read-then-compute-single-source/SKILL.md",
+      "sha256": "0e895380c85e669321864afd2021bbaa030563786b28996289b5d604f105a1f7",
+      "bytes": 3395
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/82e2fac_3/read-then-process-and-extract-single-item/SKILL.md",
+      "sha256": "b0f7424fc86068c5cbe81955f24c076f7a8e9f9f0a271777a95fdd68b4959a38",
+      "bytes": 1963
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/aa8502b_1/read-extract-act-on-derived-entities/SKILL.md",
+      "sha256": "b5d19663d8f11fa801ab6eba5961d47c0a573ba4b20415badc85f5d5774bc647",
+      "bytes": 2806
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/aa8502b_2/conditional-destructive-action-by-absence/SKILL.md",
+      "sha256": "aff9f8150023d8f7e368eda62648ac028e48c8b4883ed449911b0500d1e1678b",
+      "bytes": 2424
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/afc0fce_1/cross-app-identity-filter-multi-action/SKILL.md",
+      "sha256": "04b61e3e5ea6152831e2381debf95d7328a0b6ebe4e0fa2f31c9a67750d58915",
+      "bytes": 1966
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/b0a8eae_1/constraint-driven-selection-and-action/SKILL.md",
+      "sha256": "dca5cc69cc74308784d048e6463bac53980480482bf21d64624058f1a1a91856",
+      "bytes": 2702
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/b0a8eae_2/read-external-constraint-then-act/SKILL.md",
+      "sha256": "007f02ba9b408f77dc92e40a7ae268c2f2bd5bbf71c973cbfedb937e3b76370d",
+      "bytes": 3763
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/b7a9ee9_1/collect-filter-nested-entities-then-act/SKILL.md",
+      "sha256": "f8896e7b2b0d80e5eef0b64def22e3a1f6a752997551b0aacdebb9680e6626af",
+      "bytes": 3879
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/c901732_1/select-single-item-from-collection-then-act/SKILL.md",
+      "sha256": "7f7a042c757ad904630e9c4221bbe04697d20ab6c7a9a2a05be372145bb07011",
+      "bytes": 2491
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/c901732_2/atomic-instruction-milestone/SKILL.md",
+      "sha256": "3798a34563ed9782ffa14f0a73f4a8a503f3678ac39f3ab3200457e04bc9d7ed",
+      "bytes": 1642
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/ce359b5_2/read-identify-then-act-on-multiple-targets/SKILL.md",
+      "sha256": "2dfa6001d8ce1394e5f0e2429d2834f8207617fee648be6628c8cf331dcef3fe",
+      "bytes": 2574
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/ce359b5_3/conditional-bulk-action-on-multiple-collections/SKILL.md",
+      "sha256": "7bacc59f355e8a1177ef341abc67836528b8aea5088b1a119c9c28e5f9e9deae",
+      "bytes": 3300
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/cf6abd2_1/read-modify-write-sub-element/SKILL.md",
+      "sha256": "0191d3e7366fc52f4e548949d8184aacfba63912c14a441c156b0525bd28b803",
+      "bytes": 3073
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/cf6abd2_2/locate-then-act-on-nested-item/SKILL.md",
+      "sha256": "1b3842384ecd4db3fd7bcdfc474cb05fcbfcfeecc0cf8d5b1fa3bb2ab30e4550",
+      "bytes": 1730
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/d0b1f43_1/resolve-entities-then-aggregate-data/SKILL.md",
+      "sha256": "b3c789f7b2b277b128a725e5239e79d5402168cb75563c3dc730a600b04d5d1f",
+      "bytes": 5256
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/e3d6c94_1/filter-items-to-new-collection/SKILL.md",
+      "sha256": "91a125fa9ded23b908e46914441cbbb8684e74b7624cdf48f354b4095076f61c",
+      "bytes": 1682
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/e3d6c94_2/populate-new-container-with-filtered-items/SKILL.md",
+      "sha256": "36f6106cdfe00ee8042d82d480bd70e99be5f7caa71e9aa668f3c19f684c7241",
+      "bytes": 2095
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/e3d6c94_3/read-filter-create-populate/SKILL.md",
+      "sha256": "475e922679b7c867fbfad258ca75ef24fc9591703733c4b58d5f2477c391ba7e",
+      "bytes": 3271
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/e7a10f8_1/single-domain-complex-computation/SKILL.md",
+      "sha256": "360df45f8b62d7efddbbef33fdcf53d86aa5f7ec4590a2b0e96754be43eec1fd",
+      "bytes": 2928
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/e7a10f8_3/single-pass-collection-extremum-aggregation/SKILL.md",
+      "sha256": "b779d3c8d00e22fa4949126e8fc6aa72dcc4f5ada8322189a18abb28f481e174",
+      "bytes": 2582
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/e85d92a_1/find-extremum-item-and-extract-attribute/SKILL.md",
+      "sha256": "648f73ad53d12295726c53987e5390d2b330860f0a04fa9fdc905851ed2bea74",
+      "bytes": 2738
+    },
+    {
+      "path": "data/mind_skill/skills/release/thesis_final/rough_planner/best/e85d92a_3/retrieve-and-quantify-entity-attribute/SKILL.md",
+      "sha256": "601cad7b8890a16ad5cb42c64c81e3d1de9fb1f01b1e70e686db9aede4709d58",
+      "bytes": 2296
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "f67df82b47983cbbcf72be5f8a301877366eb0aa3df1e29b58a9d71c3ffb6891",
+      "bytes": 3402
+    },
+    {
+      "path": "docs/evaluation.md",
+      "sha256": "1ba4635e0b404af06eddb91bdde6b2858cbf55fbea9a413032a87b0cdcd66d81",
+      "bytes": 4831
+    },
+    {
+      "path": "docs/reproduction.md",
+      "sha256": "7cbc6758710cddcf3f2ed931b9ad5f18326109840e66599a6e0b6f023f05ff83",
+      "bytes": 3976
+    },
+    {
+      "path": "licenses/AppWorld-LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357
+    },
+    {
+      "path": "licenses/CUGA-LICENSE",
+      "sha256": "e35ac647dc745e801e92eff19889b64800ff4e83e64a66b8e9592cb66635db94",
+      "bytes": 13776
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "1ab95ce183bd8f62a44122dcb2be300079e45c16f8132b6fe58269759bf563ee",
+      "bytes": 850
+    },
+    {
+      "path": "scripts/appworld_rpc_server.py",
+      "sha256": "058005627dfb4bd230a5ee33ebe5b04728bd375edc6b5402a41e6852873bc659",
+      "bytes": 4959
+    },
+    {
+      "path": "scripts/build_analysis_viewer.py",
+      "sha256": "aca5067ce7fa054436d841a5834db817cb8749957456beba38b6cccb7c4e97f5",
+      "bytes": 130278
+    },
+    {
+      "path": "scripts/build_best_per_task.py",
+      "sha256": "2fe16b66f004b54635c0ba3840fce1900549dec8d04872047b82b728537cfb55",
+      "bytes": 6470
+    },
+    {
+      "path": "scripts/build_cache.py",
+      "sha256": "da1bbd658f6dccee1adc496cc2769369d0115967066518b03e680f3f3b331735",
+      "bytes": 8842
+    },
+    {
+      "path": "scripts/build_run_registry.py",
+      "sha256": "6b18719cea4124b4666d76251936e756f21afd50ad3f1c461d4d047988cac81d",
+      "bytes": 14633
+    },
+    {
+      "path": "scripts/check_appworld_data_health.sh",
+      "sha256": "37c1e0884ea658e1c209b742c3926facb0587085d092e261927df95818e18cb4",
+      "bytes": 1305
+    },
+    {
+      "path": "scripts/curation/README.md",
+      "sha256": "d64ceb6a82fe5c749e7385773c129ba7746cf2326c3254b1aa65aefe92dc7075",
+      "bytes": 1203
+    },
+    {
+      "path": "scripts/curation/assemble_baseline_runs.py",
+      "sha256": "a1b51e609641a878bea9be60310b71b60953aed53a5f1ef2c6a2e1a9c5a2278a",
+      "bytes": 2621
+    },
+    {
+      "path": "scripts/curation/continue_planner_round.py",
+      "sha256": "2886e89cdd76575c0919aa1be1b2ec40bd1a42d68cc4ee38e87a337b67d6577a",
+      "bytes": 3084
+    },
+    {
+      "path": "scripts/curation/gen_curation_summary.py",
+      "sha256": "a1af3495129d91d5041f1bb62d106d06bf1309e5f9d032802b18fb3bf69cef4b",
+      "bytes": 3234
+    },
+    {
+      "path": "scripts/curation/run_curate_engine.py",
+      "sha256": "cde45663374c135d8761498ca7a8f8d697b43ce78b5da397e33204dd1d01b9c5",
+      "bytes": 9949
+    },
+    {
+      "path": "scripts/curation/run_curate_planner.py",
+      "sha256": "35771cb7a50e2a85182ac0cfae56572bf2589424b1e54d2f24a4b4845675bf07",
+      "bytes": 5134
+    },
+    {
+      "path": "scripts/curation/run_full90_curation.py",
+      "sha256": "a3220c5c598e44afe941e15f6f8ddee6278a15f25689894ee992da2efb01a803",
+      "bytes": 8809
+    },
+    {
+      "path": "scripts/curation/run_stage2_sharpen.py",
+      "sha256": "56ac44c9686081c910dee92d6c021eb334a61a825413dd2fa2d0010b25c4fb2e",
+      "bytes": 7123
+    },
+    {
+      "path": "scripts/lib/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "scripts/lib/translations.py",
+      "sha256": "e11bb5b7db836cd3b003f439bae0e9c441b587ecfc431084686dddd0d5daacdd",
+      "bytes": 4667
+    },
+    {
+      "path": "scripts/probe_llm_latency.py",
+      "sha256": "66cd559c417747f68b2410c500106bff5744ef6811c5a482b5e9aeaf5dc6b0b2",
+      "bytes": 7444
+    },
+    {
+      "path": "scripts/run_batch.py",
+      "sha256": "3d563423d3afc4ac5d54bda868360d8ab3d76838e4dc3a87ee4291708a98087a",
+      "bytes": 25810
+    },
+    {
+      "path": "scripts/run_task.py",
+      "sha256": "3a1bb97d02c2677a6012b5deb380a7200f1d1c80b94e7484105685c7977cdafb",
+      "bytes": 43883
+    },
+    {
+      "path": "scripts/view_config.py",
+      "sha256": "51a0d90f8def229062db140805422e484206942dd7fa62163d3a4902db334374",
+      "bytes": 15923
+    },
+    {
+      "path": "src/adk_appworld_agent/__init__.py",
+      "sha256": "6c1453db020898e1802c41108c38cf6db4adfcf8f6319d8b637cb64f0700579d",
+      "bytes": 32
+    },
+    {
+      "path": "src/adk_appworld_agent/_controller_helpers.py",
+      "sha256": "d8f3793369cbe1dddd1b24f62f00656e5010203801d9fc8193d16d39cfa5cd5e",
+      "bytes": 16218
+    },
+    {
+      "path": "src/adk_appworld_agent/agent.py",
+      "sha256": "b31deebc15c945183b4498866213db04952faa25e98ecc0ff3e2f6a365b31d53",
+      "bytes": 42786
+    },
+    {
+      "path": "src/adk_appworld_agent/appworld/__init__.py",
+      "sha256": "d85857f5e9d77c07016894657d3f81879ffac95355d3da6e82bf024a59816668",
+      "bytes": 523
+    },
+    {
+      "path": "src/adk_appworld_agent/appworld/auth.py",
+      "sha256": "7a78fcbb4e8cd59531c69adb75073c6a30c3c2ccb3dcba02dc20c15661cb1b45",
+      "bytes": 4418
+    },
+    {
+      "path": "src/adk_appworld_agent/appworld/auth_holder.py",
+      "sha256": "5f09889821a4b8cc96234d18d784489c46272c4b34081ef7219c4c1bcdf43023",
+      "bytes": 772
+    },
+    {
+      "path": "src/adk_appworld_agent/appworld/bootstrap.py",
+      "sha256": "3f9058f6429809f7978c6b1e6a8db27c0b1809eca48c8e30047a09939d568be0",
+      "bytes": 2115
+    },
+    {
+      "path": "src/adk_appworld_agent/appworld/client.py",
+      "sha256": "fb8a53a373fa054d91265bc787c696709d97192b23182ae942d4a962c8b8452f",
+      "bytes": 3666
+    },
+    {
+      "path": "src/adk_appworld_agent/appworld/holder.py",
+      "sha256": "7405a0b9e5678730c0c747cb5ba3732883fb2ce4fb94fb6432fd21b2673cf12b",
+      "bytes": 866
+    },
+    {
+      "path": "src/adk_appworld_agent/appworld/world_context.py",
+      "sha256": "4341c9a043167244c6f100e14f1e1dae16f37945e192c4d88a2f12dc2e328803",
+      "bytes": 833
+    },
+    {
+      "path": "src/adk_appworld_agent/appworld_paths.py",
+      "sha256": "1a85bcee553a6f3f02f8f198256dc7d47c9c8d891cc01d216a183cd5dca11607",
+      "bytes": 2486
+    },
+    {
+      "path": "src/adk_appworld_agent/config_viewer.py",
+      "sha256": "e86ecb8688cef1b70f7b04aee0618c9e1c1f8d1ff9c1eb40fef4a1775e01438f",
+      "bytes": 60136
+    },
+    {
+      "path": "src/adk_appworld_agent/contracts/__init__.py",
+      "sha256": "6b9ab043c45c4b1937152a1654c8cc7affedc7947359f23c92222c26a266d6a6",
+      "bytes": 49
+    },
+    {
+      "path": "src/adk_appworld_agent/contracts/code_plan.py",
+      "sha256": "96929a7ed18f75a07038c2ebbbd9bbfe3590baca0a4dbdddfc16d8a5ccefee98",
+      "bytes": 3061
+    },
+    {
+      "path": "src/adk_appworld_agent/contracts/continuation.py",
+      "sha256": "2b4d4aa2090ab645e2ff1dc770b341b06183b80ae9a291a09723303bb1437d45",
+      "bytes": 1459
+    },
+    {
+      "path": "src/adk_appworld_agent/contracts/executor_result.py",
+      "sha256": "725db71fae8de98a2ef835a5497bf0571dfe62609454566653f9dcb1470d84ad",
+      "bytes": 1226
+    },
+    {
+      "path": "src/adk_appworld_agent/contracts/final_answer.py",
+      "sha256": "041ec7d643ffb4548c33d97ab76884942794d42fb593d83f704ed43051d626fe",
+      "bytes": 843
+    },
+    {
+      "path": "src/adk_appworld_agent/contracts/limits.py",
+      "sha256": "f1d30d6158e1beae7608a24111d6e7ba02e07cf327203ef3461679ef979d191b",
+      "bytes": 8439
+    },
+    {
+      "path": "src/adk_appworld_agent/contracts/plan.py",
+      "sha256": "cbfa7db5cfcf8e086c796a820756da1b4640d90b1f6e3234bb6b66234555c609",
+      "bytes": 1375
+    },
+    {
+      "path": "src/adk_appworld_agent/contracts/plan_ir.py",
+      "sha256": "6ad6dc2a544adca410b56e6a68fd56258361f2495174235a6e59977fd522b6d5",
+      "bytes": 624
+    },
+    {
+      "path": "src/adk_appworld_agent/contracts/subagent_input.py",
+      "sha256": "17a3ec2de974e6346a3ce7286493b42753a270577467a39307b920b3241240b0",
+      "bytes": 326
+    },
+    {
+      "path": "src/adk_appworld_agent/contracts/subagent_output.py",
+      "sha256": "a9b673f1933d55b5c3fe1d754c905b4d3ad4d866127d170b8a3f7be00f638be7",
+      "bytes": 1092
+    },
+    {
+      "path": "src/adk_appworld_agent/contracts/submission.py",
+      "sha256": "7451168f41a73d57062c07d8b260cd26551a1114f6483958b58667b3d50b4166",
+      "bytes": 900
+    },
+    {
+      "path": "src/adk_appworld_agent/gemini_thinking.py",
+      "sha256": "776c0462da76015ee9b18e891655c42a285e9dde798696afeae757cd3b2750fc",
+      "bytes": 1444
+    },
+    {
+      "path": "src/adk_appworld_agent/observability/__init__.py",
+      "sha256": "e0f00bba88c8a50d3afa134904c0fbb35f669782915aa73bf41f873dd67de8ad",
+      "bytes": 49
+    },
+    {
+      "path": "src/adk_appworld_agent/observability/events.py",
+      "sha256": "4a77a74d195bb47b1c0874101008f7391e5635ee52cfca36ce2c04e8d7390679",
+      "bytes": 2560
+    },
+    {
+      "path": "src/adk_appworld_agent/observability/ledger.py",
+      "sha256": "86f9f6aedc5cb862156cd8c9e2b2116415ce7e40477b99d5785d30a7ba04afc6",
+      "bytes": 893
+    },
+    {
+      "path": "src/adk_appworld_agent/observability/log_files.py",
+      "sha256": "8982a1c369b09e47cacaf504da2b3707ae4f8fa72db2b94de0bd0994ad46bb23",
+      "bytes": 6421
+    },
+    {
+      "path": "src/adk_appworld_agent/observability/markdown.py",
+      "sha256": "11f0d40bfacc40b02e0dbf6eafb5534f50475773993dba9d608e59420413ae96",
+      "bytes": 27840
+    },
+    {
+      "path": "src/adk_appworld_agent/observability/metrics.py",
+      "sha256": "1cd02d8be6a45fa4dbf53daaf3a929145a8fe669f5103dda984083d7b66f7c9d",
+      "bytes": 4126
+    },
+    {
+      "path": "src/adk_appworld_agent/observability/paths.py",
+      "sha256": "05a6386402b567e7b6b6d71a2e2c6fd4d123d73eb599f9ccf96528c7f9b2a1d6",
+      "bytes": 286
+    },
+    {
+      "path": "src/adk_appworld_agent/observability/sinks/__init__.py",
+      "sha256": "cd2395bdd2e301e901b175b1f7e32282abdaab2038fd292b08f2ce05f191ea66",
+      "bytes": 475
+    },
+    {
+      "path": "src/adk_appworld_agent/observability/sinks/batch_results.py",
+      "sha256": "24f22d64d6bbac751d6969daccdd0e91795bb29b01b7b4aa186c6006a85014ab",
+      "bytes": 6247
+    },
+    {
+      "path": "src/adk_appworld_agent/observability/sinks/debug_artifacts.py",
+      "sha256": "6199b96af6e9f993fee5b58f74c088be86bb2aea486fa271381a1e8635c2e44a",
+      "bytes": 1134
+    },
+    {
+      "path": "src/adk_appworld_agent/observability/sinks/subagent_io.py",
+      "sha256": "2b38c6cd757dc809b3b858c1c2ea956899b12e08d076d65d6480dcaf6096aaf5",
+      "bytes": 1347
+    },
+    {
+      "path": "src/adk_appworld_agent/observability/sinks/subagent_io_jsonl.py",
+      "sha256": "bc87430606f110354febee9ae018de3e6d0e8595ac11edf32e8caffb8cb59159",
+      "bytes": 1443
+    },
+    {
+      "path": "src/adk_appworld_agent/observability/sinks/task_summary.py",
+      "sha256": "1e3716b78f78c36bd0cfc1bfc5467ef1b59b7cfc79ad5b16992b20215847c8fe",
+      "bytes": 828
+    },
+    {
+      "path": "src/adk_appworld_agent/observability/sinks/terminal.py",
+      "sha256": "651de8a8e93efc9659aa3c9bedd88dd9150faf7b40886516df59b9e24366a428",
+      "bytes": 7126
+    },
+    {
+      "path": "src/adk_appworld_agent/observability/subagent_logs.py",
+      "sha256": "f48ade339e9357dca112f0997071c703121230ff4960a8779286711c7489f05a",
+      "bytes": 28739
+    },
+    {
+      "path": "src/adk_appworld_agent/observability/workflow.py",
+      "sha256": "3b0c16a048782502f25ca5613bc913decfb79a9a8d49a52da18f247a3b43aad6",
+      "bytes": 47924
+    },
+    {
+      "path": "src/adk_appworld_agent/orchestration/__init__.py",
+      "sha256": "d573ffc34ebfc0407b6e2a50f9b1e547f8eee697af83dd9ef19ba37c0a2b3f10",
+      "bytes": 54
+    },
+    {
+      "path": "src/adk_appworld_agent/orchestration/active_config.py",
+      "sha256": "126ba5a194e8dad5ce51e15b3cff5199ac84b971dc4a4ba47be18a270c2675c5",
+      "bytes": 1446
+    },
+    {
+      "path": "src/adk_appworld_agent/orchestration/cache/__init__.py",
+      "sha256": "29e981da25ea74e1bfd78ebf1fc4f047023a9cb29ae25f9bf9388ca5fef1d00a",
+      "bytes": 460
+    },
+    {
+      "path": "src/adk_appworld_agent/orchestration/cache/policy.py",
+      "sha256": "658256a2a94ec2cffdae92057b611552030c823448cf3347691b40fe69ca54f1",
+      "bytes": 4514
+    },
+    {
+      "path": "src/adk_appworld_agent/orchestration/cache/spec.py",
+      "sha256": "30db197977d435e4bc20e7bfff8ec5724ae175d8eddab202d48d3881caca83ae",
+      "bytes": 980
+    },
+    {
+      "path": "src/adk_appworld_agent/orchestration/cache/store.py",
+      "sha256": "90b474417a12bcd55ab8455439fa2c5b4dd4982f19e367b34ba89a6321be0767",
+      "bytes": 4229
+    },
+    {
+      "path": "src/adk_appworld_agent/orchestration/completion_gate.py",
+      "sha256": "5b58618e25f83bdcb286e71ff626773b365bab734d434c92777e521ca6138a28",
+      "bytes": 7482
+    },
+    {
+      "path": "src/adk_appworld_agent/orchestration/content_utils.py",
+      "sha256": "8805a1237dd1a2bd85de336be639a04b0257f281f0ac811946d786255ea6f0f3",
+      "bytes": 498
+    },
+    {
+      "path": "src/adk_appworld_agent/orchestration/orchestrator.py",
+      "sha256": "cc1f21aa20d82d9eeddcbde3a15d4900c8ed39db3f6841c4c5ec7644859c1680",
+      "bytes": 16793
+    },
+    {
+      "path": "src/adk_appworld_agent/orchestration/progress_policy.py",
+      "sha256": "bc4506fc8aec7b96deabfe0017cf4dbba270fa1b5f327dde355182a3cc51c998",
+      "bytes": 15591
+    },
+    {
+      "path": "src/adk_appworld_agent/orchestration/rate_limit_grace.py",
+      "sha256": "cd7fa3c41998fb74576cda41ade56e8d1213e3e111439fbd7ca0ca50166fd6fd",
+      "bytes": 2228
+    },
+    {
+      "path": "src/adk_appworld_agent/orchestration/run_config.py",
+      "sha256": "4893bc25aa17b782d12faa2e36a17a7252da14941e05874ac271c341e75d79b3",
+      "bytes": 22378
+    },
+    {
+      "path": "src/adk_appworld_agent/orchestration/state.py",
+      "sha256": "59f0292e92b3c4027e633a09a6ea65e0425e21c7bb8cd07e03515eca04ce34f0",
+      "bytes": 5680
+    },
+    {
+      "path": "src/adk_appworld_agent/orchestration/state_repo.py",
+      "sha256": "6cb155445419c93fc95b811a13744d6154e342d8175d4e928fffb129fcd86f2b",
+      "bytes": 796
+    },
+    {
+      "path": "src/adk_appworld_agent/orchestration/subagent_output_store.py",
+      "sha256": "7548d6c4d7f66a2ae663dc4ce16061feb98a3544f67d9bd744d1d1541ae45302",
+      "bytes": 1771
+    },
+    {
+      "path": "src/adk_appworld_agent/orchestration/subagent_runner.py",
+      "sha256": "5b3b5039263f856ee1e3a1a5ee9b4bfd675ad464a513ab20d9917801d5c48e44",
+      "bytes": 4064
+    },
+    {
+      "path": "src/adk_appworld_agent/orchestration/variable_store.py",
+      "sha256": "01558be6eca34498b491395bb858199c7c1e842f0e05a3fb44a3db647faad715",
+      "bytes": 6557
+    },
+    {
+      "path": "src/adk_appworld_agent/repo_paths.py",
+      "sha256": "73f17b936d189fa7bbc88f12579a8e2b99bdbbc63cbea88565ce7f381e80b9cd",
+      "bytes": 3344
+    },
+    {
+      "path": "src/adk_appworld_agent/seams.py",
+      "sha256": "09a72ccfdda4cdb415247020885760402f3268b26805b8162c0bc65dbadf276a",
+      "bytes": 1269
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/__init__.py",
+      "sha256": "157e5db399489366a207a6fe419c24297c309572191f03bccf12e29590231a8e",
+      "bytes": 60
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/base.py",
+      "sha256": "5ad81b7621ce90dabfb2623532a0acc6980beea5f2353bd1913c802e722fa151",
+      "bytes": 5116
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/continuer/__init__.py",
+      "sha256": "7426e8ae5fc40d5570eb23ae60285a68513465957cfe187a361e1cc141b966ba",
+      "bytes": 224
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/continuer/continuation/__init__.py",
+      "sha256": "d3784391381fb815fdd8a8cc67d796df972cf346be03019abc143abfbf1d1ac6",
+      "bytes": 965
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/continuer/continuation/agent.py",
+      "sha256": "82eed38d1f726944f7942b94dc635ac75829ec7904de13ab3dc21ca37268f025",
+      "bytes": 33864
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/continuer/continuation/prompts/full.md",
+      "sha256": "e3904298906be5320489bfa30086eef17377c17ae22e1ba31cad7c34cd728373",
+      "bytes": 16793
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/continuer/continuation/prompts.py",
+      "sha256": "8825db255134bfd0455281e934f278f033b60f86e6b0e66f92e522c1228614d3",
+      "bytes": 408
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/executor/__init__.py",
+      "sha256": "5f3843c09089d97bb36262112d0138d615f8a4bb91150b311500a4f50aa36f7b",
+      "bytes": 158
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/executor/appworld_tools.py",
+      "sha256": "3971b678d09c375fffbd308f183966ec7455c08fae3dceb7333097c3f341c55e",
+      "bytes": 43079
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/executor/code_plan_execute/__init__.py",
+      "sha256": "4456fd21f9cc64c228bf6c6b66e913709806f92285e71bba6ec4b9d983791016",
+      "bytes": 2921
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/executor/code_plan_execute/_primitives.py",
+      "sha256": "8d4efb82ccea5651d7ce8362530aef6e17e11ff9ee221fe0db0e76745743fe31",
+      "bytes": 3931
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/executor/code_plan_execute/agent.py",
+      "sha256": "74eef691f3d84414481a06ff0bf5ae8d14ff300dec25976ed7ae647eced4f8c0",
+      "bytes": 26806
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/executor/code_plan_execute/builders.py",
+      "sha256": "eddc8305f78919139d2be176471dbe8a4755d1e513c670bbac3ec52ed2ad25f3",
+      "bytes": 9030
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/executor/code_plan_execute/execution.py",
+      "sha256": "b626e6e4c4319a9dd2e549040441917f0098f7962d2052154a525a2fd0e67424",
+      "bytes": 37674
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/executor/code_plan_execute/prompt_builders.py",
+      "sha256": "0e045df1b007e0a3f629f04833eebc7b6b4e67788ec5ea9fa211ee1ca71f43d3",
+      "bytes": 26847
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/executor/code_plan_execute/prompts/code_planner_full.md",
+      "sha256": "bccd8dfca805263620e5c8dedeb6dd1c52a1a49c005aed378d978c137aaa7ed7",
+      "bytes": 15521
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/executor/code_plan_execute/prompts/code_planner_minimal.md",
+      "sha256": "05fe8c5293107c627603e123a18397e5184be08ea5c83f33bda65c634438d39b",
+      "bytes": 863
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/executor/code_plan_execute/prompts/executor_full.md",
+      "sha256": "4e642c7a3ee44e547a16985a7f1dbc1c65e0ea5cdc87f3fc93a52fffbf9d95cc",
+      "bytes": 7078
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/executor/code_plan_execute/prompts/executor_minimal.md",
+      "sha256": "c42c17f63df8260aec031c4e6de31f8ad660a7ff1d2e292a905773536b099450",
+      "bytes": 1051
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/executor/code_plan_execute/prompts.py",
+      "sha256": "6dfcf107e9e803fcd1e792db3471e624180f95a33239d0f5de7580555c73a1c8",
+      "bytes": 3613
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/executor/code_plan_execute/results.py",
+      "sha256": "cef5f814e59d6c4389166eb187de632163eaa9a766b7938c645bbb5005c1be38",
+      "bytes": 13406
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/executor/guardrails.py",
+      "sha256": "1f846606d75d4d8db44ab41d2169bc8aa15dae6d2ccd7476ca52b01171d9423c",
+      "bytes": 9986
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/failure_codes.py",
+      "sha256": "b9aca933cb0e40b29271bb982deaa0650c311bc2321f4a9999df4a865c45c5a5",
+      "bytes": 1292
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/finder/__init__.py",
+      "sha256": "50a5c3711da7ee5c3f9c6cc99e55b375378b3d7d57f7cfc1bde44cdfcb69eb0d",
+      "bytes": 289
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/finder/ablation_finders.py",
+      "sha256": "b79dc46c436fd43bee2b230c62d74558bdb57ec2ecff6290db5d6072714d9f5b",
+      "bytes": 7529
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/finder/api_specs.py",
+      "sha256": "cdf6098c7ea9c03bd98e428bb30daa39cfc283b7d0d0f3ae94c801dc54af86de",
+      "bytes": 1908
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/finder/community_finder/__init__.py",
+      "sha256": "c4028b65a909324f690a97608ec4f3cbe1e4a1ed01c4aa0f1a58d8d3d0bc2763",
+      "bytes": 360
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/finder/community_finder/agent.py",
+      "sha256": "d4269631c6af28d516a20503dc677d4dfd8d5fb16e58663fce13d3f4ef848e7f",
+      "bytes": 13162
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/finder/community_finder/prompts.py",
+      "sha256": "193f0416aaf069c1a039086989441790400c62a7e0d3c11fd9860c11bdc97228",
+      "bytes": 7214
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/finder/llm.py",
+      "sha256": "cf1c9692e6dec472e969449fb60b56eaff4ff2bba5e975661904e93c7402e8ca",
+      "bytes": 12925
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/finder/logging.py",
+      "sha256": "bd7579b8b9b31e494eb1130de6711b5d49432bccc55c8341673835ad422a44b0",
+      "bytes": 2850
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/finder/routing.py",
+      "sha256": "39df38befc3ee3f306c648c25db450ec657b54687de06fccf7e13d3c6f003bc4",
+      "bytes": 54577
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/planner/__init__.py",
+      "sha256": "9de63a48de71f79828b889bb71cdd1e4d6736e6b14f49c3aa767e60939a881c0",
+      "bytes": 145
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/planner/rough_planner/__init__.py",
+      "sha256": "e55436f245a2b88ded4c63abb7e9ca3ebfe3704a1a4089ba297117ed1668eaae",
+      "bytes": 400
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/planner/rough_planner/agent.py",
+      "sha256": "2868991032efbec3e54a5468ce6f883912d5e4d103c6069e066ac2510dda3d0b",
+      "bytes": 20231
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/planner/rough_planner/app_catalog.py",
+      "sha256": "b485019c9100dcbc6d82bbd1e6d530a4f28385a82536b200da441b8837e22e0d",
+      "bytes": 3778
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/planner/rough_planner/logging.py",
+      "sha256": "d8a21abdc02a001fe5c15dc35a78cc45ca5cbe6b6bcdea8aa5869472f474b484",
+      "bytes": 3189
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/planner/rough_planner/prompts/full.md",
+      "sha256": "0a7a20e8f5021d5335e178282e5be41716a53d8b353d2b18d690d5044dd65ac4",
+      "bytes": 6018
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/planner/rough_planner/prompts/minimal.md",
+      "sha256": "f65601d947805fc812fb58f9fae38b19ad4a263d891320e2f7ae72876aa286df",
+      "bytes": 344
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/planner/rough_planner/prompts.py",
+      "sha256": "84e2297a7de7064706af54a15816f3e4fb55c765094b3ed17f84da5abb79e554",
+      "bytes": 4080
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/registry.py",
+      "sha256": "090a8a5eb84d353d402563640671dfccde501ccbc6837e1035c4d694f54137a5",
+      "bytes": 6549
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/stubs.py",
+      "sha256": "830ccff484086f83dd4fa09e40b83e7203fdccc26caa4b744864878ebb0ec678",
+      "bytes": 4753
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/utils/__init__.py",
+      "sha256": "955770c994c4e24e62eaa3bcc3ea0b91b2fc9caef2c996acf1abffb98313233e",
+      "bytes": 499
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/utils/data_summarizer.py",
+      "sha256": "c4e95d754d04a18e9a3e847234f058ed724bcf880de1018591085708b19f315b",
+      "bytes": 13881
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/utils/instructions.py",
+      "sha256": "c1342ba1a637d9d8296c5de3f707ec2fa36993c97667b6c1740da347f2cadc81",
+      "bytes": 866
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/utils/io_format.py",
+      "sha256": "149085ea5be1faddbf7639332f157e403207d76c9b30e846a1d88ffe3fe0b8ea",
+      "bytes": 2758
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/utils/native_skills.py",
+      "sha256": "ea302568ecbf8f9d63105bda9b49aac4029f9c3b581c0b427344c7b0937669c1",
+      "bytes": 2005
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/utils/retry.py",
+      "sha256": "86f11888661932fcede0f0eb67f7afb5157c02597240191b9afea4829f46b3f8",
+      "bytes": 10241
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/utils/skills_retrieval.py",
+      "sha256": "7e2d037814f5e913b25895760e5bbc9ae89bbdc0bd5bdee6e8e8342b4282bd22",
+      "bytes": 9549
+    },
+    {
+      "path": "src/adk_appworld_agent/subagents/utils/skills_source.py",
+      "sha256": "65749c3965b1fccec4fcd7641c4c91652fabe372ba72548e87d8eed806512ecb",
+      "bytes": 5499
+    },
+    {
+      "path": "src/adk_appworld_agent/submission/__init__.py",
+      "sha256": "5f855a789436aa5430290b5f55adb50d296a6effc4611f739d5141b73ac227ea",
+      "bytes": 290
+    },
+    {
+      "path": "src/adk_appworld_agent/submission/final_answer_extractor.py",
+      "sha256": "85b25e9977bb194a8edcc4c96cbed69b2b41b5e91144e8151741a5fcebf78697",
+      "bytes": 9329
+    },
+    {
+      "path": "src/adk_appworld_agent/submission/prompts/final_answer_appworld_system.txt",
+      "sha256": "1f5e5a00ab947887c2d8d5dc22fc9046b4ee6c794fa01fbc1711cb314ab1e2c3",
+      "bytes": 13381
+    },
+    {
+      "path": "src/adk_appworld_agent/task_sets.py",
+      "sha256": "ae80408cb95aa12db03403c4af74352056d22bb9afb332605b888e900db1d6c4",
+      "bytes": 1665
+    },
+    {
+      "path": "src/mind_skill/README.md",
+      "sha256": "80ad2aca6e357ec53ea0afbcffa06e794f7e09f9feaa528bf37f072b3efc7375",
+      "bytes": 4203
+    },
+    {
+      "path": "src/mind_skill/__init__.py",
+      "sha256": "9cbcb91a9bd15605f7c6bd969e007e8cb7b824a922b5e95f2c4406adc7bd914e",
+      "bytes": 249
+    },
+    {
+      "path": "src/mind_skill/cli/__init__.py",
+      "sha256": "56d3eb6248631a43c7ef3a08830187013233739285a50faba14d837e6d7fec44",
+      "bytes": 55
+    },
+    {
+      "path": "src/mind_skill/cli/finalize.py",
+      "sha256": "01b077955d9753116141e82a2e8c0ec1e277f752c3ff1d214fd7abc7fe6b979f",
+      "bytes": 5540
+    },
+    {
+      "path": "src/mind_skill/cli/report_induction_run.py",
+      "sha256": "2133da4e69922f11b50973eb3c99d01a98645b24179c5095d068cfacbc3b17f0",
+      "bytes": 10793
+    },
+    {
+      "path": "src/mind_skill/cli/run_induction_training.py",
+      "sha256": "57b7214699c8ed6a72f69bcb6f45213af727850b7870ef6151f2f408959f40a9",
+      "bytes": 14195
+    },
+    {
+      "path": "src/mind_skill/cli/run_skill_train_eval.py",
+      "sha256": "fdcff0c3f3a535acceb4041e6f27e614deb14975277466b6fe86ceed84d60c17",
+      "bytes": 12885
+    },
+    {
+      "path": "src/mind_skill/curation/__init__.py",
+      "sha256": "329525f667ce6feb9b1a1c9f292197e1c4627593c5363c24e599c56b2c557379",
+      "bytes": 60
+    },
+    {
+      "path": "src/mind_skill/curation/curate.py",
+      "sha256": "681a41b26de4c25c05d9b434dae1f2f96700346e285e0163d7d020e8000ecace",
+      "bytes": 43850
+    },
+    {
+      "path": "src/mind_skill/curation/dedup.py",
+      "sha256": "bc23c654cf33dfe34ae15902ab1fc8d38d40b7ab4e011dc4a91ce7993900a7e1",
+      "bytes": 11691
+    },
+    {
+      "path": "src/mind_skill/deduction/__init__.py",
+      "sha256": "e8813b6b4b5b9792c01e2ad8393ce968d0b04cc8455f6cfdf2f45b4356378c2e",
+      "bytes": 1205
+    },
+    {
+      "path": "src/mind_skill/deduction/code_executor.py",
+      "sha256": "ef88fca2235d23bd8b59b0c03108b23c0223dd918a3a3f0857bfb4d6d66dac68",
+      "bytes": 20866
+    },
+    {
+      "path": "src/mind_skill/deduction/code_planner.py",
+      "sha256": "ed66885a9459e24e11f085e90c758866581d8a15afa165cb9be7a35779282e12",
+      "bytes": 7513
+    },
+    {
+      "path": "src/mind_skill/deduction/gold.py",
+      "sha256": "44bc9ea20c7f02be15ddfca11ea8775c52b5f7cb9c31442878b2cd5957de7b50",
+      "bytes": 2954
+    },
+    {
+      "path": "src/mind_skill/deduction/planner_common.py",
+      "sha256": "e934578258537f93c8ec0917045ccae2321af7d7151af29d9901b14346a3b495",
+      "bytes": 1758
+    },
+    {
+      "path": "src/mind_skill/deduction/rough_planner.py",
+      "sha256": "d63fcc24cb40826365300756f2f82dcb0d4d7208fb08451b2086104c0064e883",
+      "bytes": 18884
+    },
+    {
+      "path": "src/mind_skill/docs/induction_inputs.md",
+      "sha256": "2669b837285d987df7a3e0471e7b83ce8a03e839c30c3fe31ca5fbe7583c607c",
+      "bytes": 6019
+    },
+    {
+      "path": "src/mind_skill/docs/trajectory_schema.md",
+      "sha256": "7fdfc0dced7100ec61889aa301d022ac75e4336b0b08259804ae1ff046aeddb9",
+      "bytes": 18653
+    },
+    {
+      "path": "src/mind_skill/induction/README.md",
+      "sha256": "8b4c973042bfa3853fe9cb95d8b801f5f95d209638abd2a962db03adf916abb3",
+      "bytes": 1508
+    },
+    {
+      "path": "src/mind_skill/induction/__init__.py",
+      "sha256": "edea890df8662a8a63ad1c6eeff672ff9ebc00c9b6b06ff57b33232567b88361",
+      "bytes": 706
+    },
+    {
+      "path": "src/mind_skill/induction/agent.py",
+      "sha256": "d7a0e8b57bbaf025fd093c1b784d9cdd4d92b626d6f71bcbad48bc0899866a7c",
+      "bytes": 2790
+    },
+    {
+      "path": "src/mind_skill/induction/build_induction_input.py",
+      "sha256": "2dfc853b09a19fb90b6d1aac3e3b5d2ed1e9db00fb1676e03ca0230eedd5ae0f",
+      "bytes": 4782
+    },
+    {
+      "path": "src/mind_skill/induction/make_induction_slices.py",
+      "sha256": "68c13a98fa3d99c940dac04f0ab4fc9deece99120404b0a1ddd97b8482961c74",
+      "bytes": 6738
+    },
+    {
+      "path": "src/mind_skill/induction/prompts.py",
+      "sha256": "648a502b54a87010dec7c359d495595841a332536812fe4889c7b7d121d9b899",
+      "bytes": 4877
+    },
+    {
+      "path": "src/mind_skill/induction/schemas.py",
+      "sha256": "876aa871c71803669dc8c97cbae2485640b9172f159570d6a2f2be2610094e71",
+      "bytes": 3410
+    },
+    {
+      "path": "src/mind_skill/judges/__init__.py",
+      "sha256": "39e38e83b66e9112b058e200353a4bc28c497710c16df16516142be6051d4da3",
+      "bytes": 880
+    },
+    {
+      "path": "src/mind_skill/judges/losses.py",
+      "sha256": "cb18ff5dda348f65949261d25ededcabd85dd58cd76ace37eb89bc4bcf04194f",
+      "bytes": 2340
+    },
+    {
+      "path": "src/mind_skill/judges/recon.py",
+      "sha256": "e3e7d8f30ac02d3cac9653c8410c7088076f9f75b9c89045a8ff29913691c3d4",
+      "bytes": 6386
+    },
+    {
+      "path": "src/mind_skill/judges/rubric.py",
+      "sha256": "ce9afc53de6fb5d983754fe0e120c406c970b21c95634adaaa1327619085fd30",
+      "bytes": 4133
+    },
+    {
+      "path": "src/mind_skill/loop.py",
+      "sha256": "e561c52e8b6e25946c9a86b8b56cfa1ae8d5077f29ccef8371f23e9818eedd13",
+      "bytes": 23078
+    },
+    {
+      "path": "src/mind_skill/oracle/__init__.py",
+      "sha256": "fcfaefea86fb4b69bebd9ea78a193813cf0caf8080dc61f8c13485fac69d35b3",
+      "bytes": 58
+    },
+    {
+      "path": "src/mind_skill/oracle/oracle_backend.py",
+      "sha256": "9c34fa62a1eaf3b94641713936bd076c4a6bed90a1d86ee6561fca9549650a8e",
+      "bytes": 6151
+    },
+    {
+      "path": "src/mind_skill/oracle/run_batch_oracle.py",
+      "sha256": "ec66329df5cdf1b3583b8ed4d4558b928ece69a6643f6ea709125ad5cf385da2",
+      "bytes": 6669
+    },
+    {
+      "path": "src/mind_skill/oracle/run_openbook.py",
+      "sha256": "26fc95995e5581fd306457f4c7eef6ade76ecbe1ba0082ede870efcefdc47ce0",
+      "bytes": 4633
+    },
+    {
+      "path": "src/mind_skill/oracle/run_oracle_auto.py",
+      "sha256": "1250ab228a5f0e1b540991ecb72e0259f226ff143b0343133e89bca03e844d24",
+      "bytes": 9852
+    },
+    {
+      "path": "src/mind_skill/oracle/run_oracle_task.py",
+      "sha256": "d6cff7d0c233511cabf8663f7e4560dc0359225b55ecbc5841ef368fd3965315",
+      "bytes": 9627
+    },
+    {
+      "path": "src/mind_skill/paths.py",
+      "sha256": "14e7019469e0c5116fa53c6f2cda409218732db63b98b57bde8de3eedbd88bf1",
+      "bytes": 2404
+    },
+    {
+      "path": "src/mind_skill/runtime.py",
+      "sha256": "e0e3b7593b026ab44e4335d86842ccae3d1cfb7182a93349af314e5530c25a26",
+      "bytes": 10865
+    },
+    {
+      "path": "src/mind_skill/textgrad/__init__.py",
+      "sha256": "f0f9013260a35e5f1e63a63172215faa51c32ac41701d8e603b741a94c1b7f2f",
+      "bytes": 823
+    },
+    {
+      "path": "src/mind_skill/textgrad/gradient.py",
+      "sha256": "a9f629a3e2f35a4e5821ec0d41d5f90f9141056d8c690b02fbbfed85ebd554be",
+      "bytes": 4701
+    },
+    {
+      "path": "src/mind_skill/textgrad/optimizer.py",
+      "sha256": "63b2841260a3f85a44b85828328b1942441b2861a9c44bdffcd91b0379cb58c0",
+      "bytes": 3532
+    },
+    {
+      "path": "src/mind_skill/trajectory/__init__.py",
+      "sha256": "1fca754ab4ffccd82bbdc2290f3047d78756e7fa670f66e276a11e7c53e727fe",
+      "bytes": 62
+    },
+    {
+      "path": "src/mind_skill/trajectory/build_trajectory.py",
+      "sha256": "f745a373024aa2ce7abdf91aac38a25111fa4058bc679f781ab2ca61996194aa",
+      "bytes": 16002
+    },
+    {
+      "path": "src/mind_skill/trajectory/render.py",
+      "sha256": "08815812650cf3dc9b3e5db21fbf4e63343a5d11bea94887edbf9fd39ad6bd06",
+      "bytes": 4258
+    },
+    {
+      "path": "tests/__init__.py",
+      "sha256": "996db87b4ece12837731e129a45782b9f57ea5c672ebd62edaf91645860b4206",
+      "bytes": 39
+    },
+    {
+      "path": "tests/fixtures/__init__.py",
+      "sha256": "9a77b3fb4a6b0cc9cf9b7a505cc0b45c65e72ab3b90489ac3aedb448e55284c8",
+      "bytes": 965
+    },
+    {
+      "path": "tests/fixtures/executor_failures/README.md",
+      "sha256": "e442674c98ae6dfb4053a1dc62562b665853431c79c224d0f67e584bca5b910c",
+      "bytes": 2949
+    },
+    {
+      "path": "tests/fixtures/executor_failures/answer_norm_value_null.json",
+      "sha256": "4b8b37c65bba41560b68af7ca563fb18d287c7d2955cdabdd22eb77bb30105db",
+      "bytes": 1889
+    },
+    {
+      "path": "tests/fixtures/executor_failures/answer_norm_verbose_sentence.json",
+      "sha256": "ed948fae386349f46076b40d126bc64d0e9d3305192b49a2a980112b2aa19229",
+      "bytes": 4154
+    },
+    {
+      "path": "tests/fixtures/executor_failures/plan_give_up.json",
+      "sha256": "0d4df6a2b0f4f29834355fdd51bc5d0797d01bc0ca0ffd18b932c89133924c59",
+      "bytes": 8844
+    },
+    {
+      "path": "tests/fixtures/executor_failures/wrapper_anti_pattern.json",
+      "sha256": "c2bba648c0090ff49e05335b3f2c56d9d90471768ac5eafaa49afd5d50c5b0ce",
+      "bytes": 1658
+    },
+    {
+      "path": "tests/helpers.py",
+      "sha256": "02cf9a530a07b37b24b4bd7a1fa5c1d67ea119b8255c464d40d093c7f6a93474",
+      "bytes": 1227
+    },
+    {
+      "path": "tests/test_ablation_finders.py",
+      "sha256": "7dcecdebd5205d647e216c676618919c6d12071c7b8edf1d55d0b3add311bae5",
+      "bytes": 5155
+    },
+    {
+      "path": "tests/test_analysis_viewer_baseline.py",
+      "sha256": "cb1e8da4c1786610dda973ba86aa954f8bcd7ebfd495e074684ba7c9d7087ec5",
+      "bytes": 3488
+    },
+    {
+      "path": "tests/test_appworld_auth.py",
+      "sha256": "106b7267e4ae4a49399060980c1800242e9f44e6b9b33fede2304ad7ae0765c5",
+      "bytes": 2101
+    },
+    {
+      "path": "tests/test_appworld_paths.py",
+      "sha256": "ec7a82be0597ddaddf4d10d915d0025a076d155b8671b819084ebeabaa6e5683",
+      "bytes": 2108
+    },
+    {
+      "path": "tests/test_appworld_rpc_client.py",
+      "sha256": "5a00a168e8d45056f6d8d53da34bd1890769c4a86ac1d4101a0462722f6b12c8",
+      "bytes": 3237
+    },
+    {
+      "path": "tests/test_appworld_tools.py",
+      "sha256": "707b0281fab1a4368846249a3c885f4872b3eec70fcae137dc68d523a7737e17",
+      "bytes": 18879
+    },
+    {
+      "path": "tests/test_batch_results_sink_resume.py",
+      "sha256": "33d76c48c3b7adbc9ac2786f55ba0952c4680d452064adf2f80f43e1e1ffb7ee",
+      "bytes": 2880
+    },
+    {
+      "path": "tests/test_bootstrap.py",
+      "sha256": "df947eb7267fc57434416bafd1856031c884d1c1c14c0c20a85a5b567460b05d",
+      "bytes": 2331
+    },
+    {
+      "path": "tests/test_code_plan_contract.py",
+      "sha256": "bc147cc4c5f897d4b82125c8989aa7208ea1ca5585b175272eb1f4a7b9f7b8e9",
+      "bytes": 2315
+    },
+    {
+      "path": "tests/test_code_plan_execute_subagent.py",
+      "sha256": "5f426514920d068c81d068e004e4514edaf634e23d595504ae672438e35e0b55",
+      "bytes": 82649
+    },
+    {
+      "path": "tests/test_community_finder_subagent.py",
+      "sha256": "73e55ff8e723ecf953d4a5dd69f090747f982e1c90fe5150a917de0e3ebb3447",
+      "bytes": 10646
+    },
+    {
+      "path": "tests/test_community_routing.py",
+      "sha256": "27ff0bc4e6faca1df1d852c47a681ffbdf5e1bf5968a100fa25309461e6cd94c",
+      "bytes": 31683
+    },
+    {
+      "path": "tests/test_completion_gate.py",
+      "sha256": "cd695ac1caa819298fab191880e2215dec17bc1bb3ad26727e4452e7fe76eaaa",
+      "bytes": 7713
+    },
+    {
+      "path": "tests/test_config_launcher.py",
+      "sha256": "98847c7465b050234eda9e27f77725351b1b8c6c705762e1e8300ac77f5efea0",
+      "bytes": 4245
+    },
+    {
+      "path": "tests/test_config_viewer.py",
+      "sha256": "e6fb3581166ba97d3ec46e837b122d5580e0cc767628f2e35a2c85ecd02d4a85",
+      "bytes": 6009
+    },
+    {
+      "path": "tests/test_continuation_history_window.py",
+      "sha256": "f59a984315f07ee94d0b94de5daf8203aa3c9dabf4bb398d43ff575cb17253e1",
+      "bytes": 29467
+    },
+    {
+      "path": "tests/test_continuation_self_assess_override.py",
+      "sha256": "6929d29fc0ed75cf4ee90892aaf6f049c664ca881f628f7019e0b06f2ccd36bf",
+      "bytes": 2787
+    },
+    {
+      "path": "tests/test_controller_reads_single_output_path.py",
+      "sha256": "498f48b44ea8ddb202923b182cda6a42335d38a5a6dd9e72e5720d13bf5b71fe",
+      "bytes": 3116
+    },
+    {
+      "path": "tests/test_controller_state_ownership.py",
+      "sha256": "de21bcbf17da75a159cfd769839d3fd2e7ccceb1c0e25b2c871d0e3ed8458fc6",
+      "bytes": 3152
+    },
+    {
+      "path": "tests/test_curly_fence_strip.py",
+      "sha256": "669e75b804301187033931a2d838fe9a26eb8c8bed3005966cfec6d58bfdc3b3",
+      "bytes": 3228
+    },
+    {
+      "path": "tests/test_cycle_history.py",
+      "sha256": "f98c609daf2fdab6fe046550d9d6ab660c655772f0bb7c108c11cce7adf0af66",
+      "bytes": 3214
+    },
+    {
+      "path": "tests/test_cycle_loop.py",
+      "sha256": "b98d2041388f1136a126ad6ab10f1cbd23160a32c4cfa619ba144d84d3c1c4a6",
+      "bytes": 59945
+    },
+    {
+      "path": "tests/test_data_summarizer.py",
+      "sha256": "f521e63001428b73ce677208b7793fff6116f4b786ac8e407080c48d333f271e",
+      "bytes": 6716
+    },
+    {
+      "path": "tests/test_executor_llm_timeout.py",
+      "sha256": "11edc09ebb77959c66e0afc82c85ff391ad0c0726a059dc9c3e9703d9caf050a",
+      "bytes": 2467
+    },
+    {
+      "path": "tests/test_executor_loop_isolation.py",
+      "sha256": "8904932b26ff5d171d6592a1ca835db43d0bdba4a27f8a5e6275f134a31f8ecd",
+      "bytes": 2497
+    },
+    {
+      "path": "tests/test_executor_minimal_prompt.py",
+      "sha256": "152932055f14969ccecb74793ac36b5eb48788e83b9ff7a3c7dc244d71726765",
+      "bytes": 4639
+    },
+    {
+      "path": "tests/test_executor_variable_handoff.py",
+      "sha256": "2f3d7e594421555b1e03063a84f3c72a840f8a7a7511039037a30b7c6ac653ac",
+      "bytes": 6477
+    },
+    {
+      "path": "tests/test_final_answer_extractor.py",
+      "sha256": "2b906d1c00b090b242dcfee51717442bc28bd7e98bd4b611ad33da10fbe33b1f",
+      "bytes": 18556
+    },
+    {
+      "path": "tests/test_finding_llm_retry.py",
+      "sha256": "b88b6d57382c55ac0fe8adff5c1adf13d7798fb0bb4b4209d06e35c4b3a438e9",
+      "bytes": 3252
+    },
+    {
+      "path": "tests/test_guardrails.py",
+      "sha256": "d4fbd542bab85ca7be498164e6cd372a5248ae90ebbe5fbbc73d31b997cdf439",
+      "bytes": 1866
+    },
+    {
+      "path": "tests/test_log_files.py",
+      "sha256": "4729c55178c25c6c66702354fbe913f9b12deca669464c2e15fd5cef9648b1a7",
+      "bytes": 4341
+    },
+    {
+      "path": "tests/test_mind_skill_curate.py",
+      "sha256": "0795cf6aaa3d16d15f56e521ffbdd269a9938f264e30a8dd140b2bd1d940ea26",
+      "bytes": 7439
+    },
+    {
+      "path": "tests/test_mind_skill_curate_engine.py",
+      "sha256": "0cd38c6c6869e80cb25880f49268b1bac8ddb0c446b01be8899175637f5d3470",
+      "bytes": 7804
+    },
+    {
+      "path": "tests/test_mind_skill_deduction_loading.py",
+      "sha256": "6e4680c1180c9284ad5ea50e9aeb801b074f06b1b904f4951a11fd62cb4f7c19",
+      "bytes": 2783
+    },
+    {
+      "path": "tests/test_mind_skill_finalize.py",
+      "sha256": "9238ac73420eb9e302ef8caeae2a12b9cdcc20dfc5ce87d6cbfc1a1470576f2b",
+      "bytes": 4710
+    },
+    {
+      "path": "tests/test_mind_skill_induction.py",
+      "sha256": "aea5fbade3b84c78f0fa1fa983e1d68af35ded4e7c52d7045e0c4e8cf6ca0b89",
+      "bytes": 4846
+    },
+    {
+      "path": "tests/test_mind_skill_loop_assembly.py",
+      "sha256": "e421850202f2613a99813f6e8186484e3cefd959f3a72c353da946576eb54338",
+      "bytes": 2207
+    },
+    {
+      "path": "tests/test_native_skill_names.py",
+      "sha256": "f1a3eb5d1a469028f3f56f82d62e3da50671c79cf78247682958fa2055c81a66",
+      "bytes": 1084
+    },
+    {
+      "path": "tests/test_no_progress_give_up.py",
+      "sha256": "c9cfa185e65aa4075174d9610188340c3bba7622945083435a81b478be0130cd",
+      "bytes": 20100
+    },
+    {
+      "path": "tests/test_prior_milestone_returns.py",
+      "sha256": "99ad602fdfac97169bbdf733047b93497b3fcff9e56d1706600e1d3cd2fcde4e",
+      "bytes": 6513
+    },
+    {
+      "path": "tests/test_rate_limit_grace.py",
+      "sha256": "3d85b866486fb6f86dd6e7a37ab6f800aa02f95d04e81bfc0a65446d6899b7e4",
+      "bytes": 2721
+    },
+    {
+      "path": "tests/test_repo_paths.py",
+      "sha256": "76103076e2d737586143307ec6208f6ddd8dd98eb6b16507d74080f61a2449fc",
+      "bytes": 563
+    },
+    {
+      "path": "tests/test_run_batch_result.py",
+      "sha256": "2b3dbe6aba2971cc1f51c56720797f6ddcc99773a598ebb85294eb4088146f54",
+      "bytes": 11851
+    },
+    {
+      "path": "tests/test_run_config.py",
+      "sha256": "8ace03277574ac59d8df809fa52484314c86fc0a070546623b1f10e4c71f926e",
+      "bytes": 4427
+    },
+    {
+      "path": "tests/test_run_task_logging.py",
+      "sha256": "3da5d13eb44240b20bd3ba591d6921126ce84e3d2d673bceaf006edccf6c8b12",
+      "bytes": 10351
+    },
+    {
+      "path": "tests/test_scenario_goal_completion.py",
+      "sha256": "affbab7ee3340e785acb85762d01670ec20de4a4cd7306d2f79a015acb7ddf38",
+      "bytes": 1283
+    },
+    {
+      "path": "tests/test_self_assess_precision.py",
+      "sha256": "a198299aec1d717a456d7eae1bc0699386a86e5edef04174a81c5f92ce1ce76b",
+      "bytes": 4674
+    },
+    {
+      "path": "tests/test_skill_embedding_selection.py",
+      "sha256": "ebe0f96341bd8b09255f4b6de142a177930c8b37aa811245ef83e20ab03efd28",
+      "bytes": 7282
+    },
+    {
+      "path": "tests/test_skill_per_milestone.py",
+      "sha256": "95f879f1afb26d03fa5b4170f31b81a1affca4999ac4531a7184d5fdf310a398",
+      "bytes": 4032
+    },
+    {
+      "path": "tests/test_skill_registry_impls.py",
+      "sha256": "c1a586743b15967e421d73bf6f1a1b27b7eaabc8810dfe0480f48141f89665ee",
+      "bytes": 3555
+    },
+    {
+      "path": "tests/test_stub_failure_flow_smoke.py",
+      "sha256": "67229b3857d93013a60ad319a15ed29972a7fe3d95e675d52ef4bb76855e2541",
+      "bytes": 5353
+    },
+    {
+      "path": "tests/test_stub_flow_smoke.py",
+      "sha256": "0980f855864195d07622062ca00d75ec406b9ba2f5bec58176a141939a06887c",
+      "bytes": 1905
+    },
+    {
+      "path": "tests/test_stubs.py",
+      "sha256": "2f9e2b20c6e607b2a60cbb0693cb5736fbe1b8801b40ab73ad7500ed5892153b",
+      "bytes": 2351
+    },
+    {
+      "path": "tests/test_subagent_cache.py",
+      "sha256": "6e1a3a3646f3af2ae67d4dd27a47c52c0bc155ea8aa4156005a0f6c11abe9914",
+      "bytes": 7255
+    },
+    {
+      "path": "tests/test_subagent_cache_integration.py",
+      "sha256": "34f0ec738c1de5925d7030498ccb0a2e9d7ec826f77611d9dbe64000bf05f8c6",
+      "bytes": 6038
+    },
+    {
+      "path": "tests/test_subagent_log_specs.py",
+      "sha256": "6eed84206b2649dd9069d50f39c18d8df971a687e7fc3e3cc9948b6e794b7faa",
+      "bytes": 22432
+    },
+    {
+      "path": "tests/test_subagent_output_contract.py",
+      "sha256": "6f799eae2117a91b59357d6a15dcb76444df5a36dbd8cb289f75d1e52b3885c3",
+      "bytes": 2198
+    },
+    {
+      "path": "tests/test_subagent_registry.py",
+      "sha256": "9dd7f25b2cc36ff17004393f63244cd70c59b6952cce08490c920109fad5f15c",
+      "bytes": 6027
+    },
+    {
+      "path": "tests/test_subagents_retry.py",
+      "sha256": "b64dd2b36545042d24458990e3a19f06b16fec03b70324af6a539e9b86e87000",
+      "bytes": 9576
+    },
+    {
+      "path": "tests/test_triple_quote_fence.py",
+      "sha256": "c19c7821dde384a198bc3e95197d9ae92c017fd1ac0758fd325a5373f75b7edb",
+      "bytes": 2263
+    },
+    {
+      "path": "tests/test_unified_rate_limit.py",
+      "sha256": "749f979a44d93463dc84f827418115fcc383c109f1abae2c56cca6fe757c429d",
+      "bytes": 14955
+    },
+    {
+      "path": "tests/test_v1_contracts.py",
+      "sha256": "8248eacab9be3b0ddc9c7334d451809dd63895705886f0fab082bf3bed325080",
+      "bytes": 2720
+    },
+    {
+      "path": "tests/test_variable_store.py",
+      "sha256": "346f1a4e5af34b043e301116b27f7ee28d53fc0b3c1064715cea2aed0870ed76",
+      "bytes": 3721
+    },
+    {
+      "path": "tests/test_viewer_cycle_assignment.py",
+      "sha256": "164851f47370ce2c100e1ba3d8ce99e16c2873290070c357bb5941c78b34a8bf",
+      "bytes": 6355
+    },
+    {
+      "path": "tests/test_workflow.py",
+      "sha256": "6d81059a66043f14134fcf4cd14674b3008cdd062ccd4817b31c10f87670aeb4",
+      "bytes": 44232
+    },
+    {
+      "path": "tests/test_world_context.py",
+      "sha256": "b0aa7e2593132deb76a6dfbae9dbf93f21c57cbd5c159723e0505279a35030b3",
+      "bytes": 795
+    },
+    {
+      "path": ".github/workflows/tests.yml",
+      "sha256": "23d8ae84957cb5bfb5ef69bd37cf8d9226a4719c01442e3725fe9949049cc313",
+      "bytes": 657
+    },
+    {
+      "path": ".python-version",
+      "sha256": "02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+      "bytes": 5
+    },
+    {
+      "path": "docs/example-run.md",
+      "sha256": "17684d2797965ac2b3ba0a2c5c214425edcac4feebf2d3c2c97ff0936836b73a",
+      "bytes": 2071
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "cda3e5a56515963aee5e3278f3b55846163bc716e392cee540f782907c302f89",
+      "bytes": 613030
+    }
+  ],
+  "file_count": 469,
+  "total_bytes": 4804367
+}

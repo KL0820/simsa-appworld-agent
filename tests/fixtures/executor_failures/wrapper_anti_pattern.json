@@ -1,0 +1,34 @@
+[
+  {
+    "source": {
+      "task_id": "9dabbc9_2",
+      "milestone_index": 1,
+      "log_run": "logs/plan_finder_executor_fixes_full/20260505_020924_311443",
+      "synthetic": false,
+      "note": "M2 cognizant_code wrapper, inner has no apis. call"
+    },
+    "data": {
+      "code": " cognizant_code = \"\"\"\nimport json\n\nresult_dict = {\"variable_name\": \"milestone_status\", \"description\": \"Failed to reject Venmo payment request due to missing payment_request_id from prior milestone.\", \"value\": {\"success\": False, \"reason\": \"Missing payment_request_id\"}}\nprint(json.dumps({\n    \"value\": result_dict[\"value\"],\n    \"answer\": \"null\",\n    \"summary\": \"Failed to reject Venmo payment request due to missing payment_request_id.\"\n}))\n\"\"\"\nprint(cognizant_code)"
+    },
+    "expected_after_fix": {
+      "F4_repair_prompt_should_contain": "Put the actual program directly",
+      "F5_looks_like_python_program": true,
+      "F5_should_unwrap": true
+    }
+  },
+  {
+    "source": {
+      "task_id": null,
+      "synthetic": true,
+      "note": "negative: long docstring, no print(<var>) at end"
+    },
+    "data": {
+      "code": "help_text = \"\"\"\nThis is a usage doc.\nIt has multiple lines.\nIt uses print(json.dumps({\\\"x\\\": 1}))\n\"\"\"\nimport json\nresult = apis.venmo.show_balance()\nprint(json.dumps({\"value\": result, \"answer\": \"null\", \"summary\": \"ok\"}))\n"
+    },
+    "expected_after_fix": {
+      "F4_repair_prompt_should_contain": null,
+      "F5_should_unwrap": false,
+      "F5_note": "_looks_like_python_program may return True but unwrap not triggered without final print(<name>)"
+    }
+  }
+]

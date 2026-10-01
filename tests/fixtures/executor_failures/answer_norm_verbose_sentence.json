@@ -1,0 +1,150 @@
+[
+  {
+    "source": {
+      "task_id": "7847649_2",
+      "milestone_index": 0,
+      "log_run": "logs/plan_finder_executor_fixes_full/20260505_020924_311443",
+      "synthetic": false,
+      "note": "verbose: 'There are 3 activities...'"
+    },
+    "data": {
+      "answer": "There are 3 activities left to do in your bucket list.",
+      "task_type_hint": "query",
+      "milestone_intent": "How many activities are left in my bucket list?"
+    },
+    "expected_after_fix": {
+      "submission_answer": "3"
+    }
+  },
+  {
+    "source": {
+      "task_id": "166f4ff_2",
+      "milestone_index": 0,
+      "log_run": "logs/plan_finder_executor_fixes_full/20260505_020924_311443",
+      "synthetic": false,
+      "note": "verbose: '$833.00...'"
+    },
+    "data": {
+      "answer": "You have been requested a total of $833.00 on Venmo in the last 10 days.",
+      "task_type_hint": "query",
+      "milestone_intent": "How much money have I been requested on Venmo in the last 10 days?"
+    },
+    "expected_after_fix": {
+      "submission_answer": "833.00"
+    }
+  },
+  {
+    "source": {
+      "task_id": "afc4005_2",
+      "milestone_index": 0,
+      "log_run": "logs/plan_finder_executor_fixes_full/20260505_020924_311443",
+      "synthetic": false,
+      "note": "verbose: '30 minutes'"
+    },
+    "data": {
+      "answer": "null",
+      "task_type_hint": "query",
+      "milestone_intent": "How long was my workout yesterday?"
+    },
+    "expected_after_fix": {
+      "submission_answer": "30"
+    }
+  },
+  {
+    "source": {
+      "task_id": "dac78d9_2",
+      "milestone_index": 0,
+      "log_run": "logs/plan_finder_executor_fixes_full/20260505_020924_311443",
+      "synthetic": false,
+      "note": "verbose: '8 Venmo friends since October 1st, 2022'"
+    },
+    "data": {
+      "answer": "You have made 8 Venmo friends since October 1st, 2022.",
+      "task_type_hint": "query",
+      "milestone_intent": "How many venmo friends have I made since October last year?"
+    },
+    "expected_after_fix": {
+      "submission_answer": "8",
+      "rationale": "must skip ordinal '1st' and year '2022', pick '8'"
+    }
+  },
+  {
+    "source": {
+      "task_id": null,
+      "synthetic": true,
+      "note": "multi-numeric, query asks 'how much received'"
+    },
+    "data": {
+      "answer": "I have 5 friends but received $100 in total.",
+      "task_type_hint": "query",
+      "milestone_intent": "How much money have I received this month?"
+    },
+    "expected_after_fix": {
+      "submission_answer": "100",
+      "rationale": "last-numeric anchor + intent points to amount"
+    }
+  },
+  {
+    "source": {
+      "task_id": null,
+      "synthetic": true,
+      "note": "year-like number must be skipped"
+    },
+    "data": {
+      "answer": "Received in May 2026, total $620.",
+      "task_type_hint": "query",
+      "milestone_intent": "How much did I receive last month?"
+    },
+    "expected_after_fix": {
+      "submission_answer": "620",
+      "rationale": "exclude 4-digit year 2026"
+    }
+  },
+  {
+    "source": {
+      "task_id": null,
+      "synthetic": true,
+      "note": "multi-numeric with %, intent says 'paid'"
+    },
+    "data": {
+      "answer": "20% discount on $50, paid $40 final.",
+      "task_type_hint": "query",
+      "milestone_intent": "How much did I pay?"
+    },
+    "expected_after_fix": {
+      "submission_answer": "40",
+      "rationale": "last-numeric anchor"
+    }
+  },
+  {
+    "source": {
+      "task_id": null,
+      "synthetic": true,
+      "note": "negative: yes/no answer, no number"
+    },
+    "data": {
+      "answer": "Yes, you have access.",
+      "task_type_hint": "query",
+      "milestone_intent": "Do I have access?"
+    },
+    "expected_after_fix": {
+      "submission_answer": "Yes, you have access.",
+      "rationale": "Mode B not triggered"
+    }
+  },
+  {
+    "source": {
+      "task_id": null,
+      "synthetic": true,
+      "note": "decimal + unit suffix"
+    },
+    "data": {
+      "answer": "Subscription cost is $15.99/month.",
+      "task_type_hint": "query",
+      "milestone_intent": "What is the monthly cost?"
+    },
+    "expected_after_fix": {
+      "submission_answer": "15.99"
+    }
+  }
+]

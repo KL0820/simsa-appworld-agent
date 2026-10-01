@@ -1,0 +1,8 @@
+# Stable, fast AppWorld regression smoke set.
+# Historical local runs before selection:
+# - 13547f5_2: 19/19 PASS, median successful wall time 81.3s
+# - 024c982_2: 17/17 PASS, median successful wall time 94.6s
+# - fd1f8fa_2: 18/18 PASS, median successful wall time 117.6s
+13547f5_2
+024c982_2
+fd1f8fa_2

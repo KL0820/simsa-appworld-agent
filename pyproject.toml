@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adk-appworld-agent"
+version = "0.1.0"
+description = "Multi-agent API task execution with automatic skill induction"
+requires-python = ">=3.12"
+dependencies = [
+  "google-adk==2.7.1",
+  "google-genai==2.19.0",
+  "pydantic==2.13.4",
+  "PyYAML==6.0.3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1", "numpy>=1.26"]
+runtime = ["zerorpc==0.6.3", "python-dotenv==1.2.3"]
+community-pipeline = [
+  "sentence-transformers>=3.0",
+  "igraph>=0.11",
+  "leidenalg>=0.10",
+  "numpy>=1.26",
+  "python-dotenv==1.2.3",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["*.md", "*.txt", "prompts/*.md", "prompts/*.txt", "docs/*.md"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

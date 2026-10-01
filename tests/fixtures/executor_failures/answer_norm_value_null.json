@@ -1,0 +1,70 @@
+[
+  {
+    "source": {
+      "task_id": "21abae1_2",
+      "milestone_index": 0,
+      "log_run": "logs/plan_finder_executor_fixes_full/20260505_020924_311443",
+      "synthetic": false,
+      "note": "value=620.0 numeric, answer=None"
+    },
+    "data": {
+      "stdout_json": {
+        "value": 620.0,
+        "answer": null,
+        "summary": "You have received 620.00 on Venmo this month."
+      },
+      "task_type_hint": "query",
+      "milestone_intent": "How much money have I received from others on venmo this month so far?"
+    },
+    "expected_after_fix": {
+      "submission_answer": "620.0",
+      "answer_type": "float"
+    }
+  },
+  {
+    "source": {
+      "task_id": "bde252e_2",
+      "milestone_index": "?",
+      "log_run": "logs/plan_finder_executor_fixes_full/20260505_020924_311443",
+      "synthetic": false,
+      "note": "numeric value, null answer (TIMEOUT task)"
+    },
+    "data": {
+      "stdout_json": {
+        "value": 9,
+        "answer": "null",
+        "summary": "Calculated the maximum number of incomplete tasks to move from the Inbox to the Today's Target project."
+      },
+      "task_type_hint": "query",
+      "milestone_intent": ""
+    },
+    "expected_after_fix": {
+      "submission_answer": "9",
+      "answer_type": "int"
+    }
+  },
+  {
+    "source": {
+      "task_id": null,
+      "synthetic": true,
+      "note": "negative: action milestone with API confirmation"
+    },
+    "data": {
+      "stdout_json": {
+        "value": {
+          "message": "Text message sent.",
+          "text_message_id": 16793
+        },
+        "answer": "null",
+        "summary": "sent"
+      },
+      "task_type_hint": "action",
+      "milestone_intent": "Send a phone text message to my partner."
+    },
+    "expected_after_fix": {
+      "submission_answer": "null",
+      "answer_type": "null",
+      "rationale": "action milestone keeps null"
+    }
+  }
+]
