@@ -24,9 +24,20 @@ function addChips(parent, label, values) {
   parent.append(row);
 }
 
+function planItemMarker(item) {
+  const marker = element("li", "plan-item-marker");
+  const label = `PLAN ITEM ${item.number} OF ${item.total}${item.cycle > 1 ? ` · CYCLE ${item.cycle}` : ""}`;
+  marker.append(element("span", "label", label));
+  marker.append(element("strong", "", `${item.app ? item.app + " · " : ""}${item.task || "Unnamed plan item"}`));
+  return marker;
+}
+
 function eventBody(event) {
   const body = element("div", "event-body");
   if (event.stage_status === "running") {
+    if (event.type === "retrieval" && event.plan_item?.task) addText(body, `Searching APIs for: ${event.plan_item.task}`);
+    if (event.type === "execution" && event.plan_item?.task) addText(body, `Executing: ${event.plan_item.task}`);
+    if (event.type === "control" && event.plan_item?.task) addText(body, `Checking progress on: ${event.plan_item.task}`);
     addText(body, "Working… this stage will update when the agent returns a result.");
     return body;
   }
@@ -37,6 +48,7 @@ function eventBody(event) {
     for (const step of steps) list.append(element("li", "", `${step.app ? step.app + " · " : ""}${step.task || "Unnamed step"}`));
     body.append(list);
   } else if (event.type === "retrieval") {
+    if (event.plan_item?.task) addText(body, `APIs considered for: ${event.plan_item.task}`);
     addChips(body, "MATCHED APPS", event.apps);
     addChips(body, "CANDIDATE APIS", event.apis);
     if (event.apis?.length) addText(body, "Candidates considered here; the execution stage shows which APIs were actually called.");
@@ -65,7 +77,7 @@ function render(data) {
   $("mode").className = `mode ${preview ? "preview" : "live"}`;
   $("mode-note").textContent = preview
     ? "A synthetic walkthrough of the interface. No model or AppWorld task is run; use live mode to see real agent behavior."
-    : (data.mode === "replay" ? "A completed, real AppWorld run recorded locally on this computer." : "Events from a real AppWorld task appear here as the agent works. This page is served only on your computer.");
+    : (data.mode === "replay" ? "A completed, real AppWorld run recorded locally on this computer." : "Live stage updates appear about every 0.6 seconds as the agent works. Model tokens are not streamed. This page stays on your computer.");
   const task = data.events.find((event) => event.type === "task");
   if (task) {
     $("task-id").textContent = task.task_id || "";
@@ -79,15 +91,17 @@ function render(data) {
   const timeline = $("timeline");
   timeline.replaceChildren();
   const stages = data.stages || [];
-  const plan = stages.find((stage) => stage.type === "plan");
-  const milestoneCount = Array.isArray(plan?.milestones) ? plan.milestones.length : 0;
+  let shownCycle = "";
   for (const event of stages) {
+    if (event.plan_item) {
+      const item = event.plan_item;
+      const cycle = `${item.number}:${item.cycle}:${item.task}`;
+      if (cycle !== shownCycle) timeline.append(planItemMarker(item));
+      shownCycle = cycle;
+    }
     const item = element("li", `event ${event.stage_status === "running" ? "running" : "complete"}`);
     const head = element("div", "event-head");
     head.append(element("strong", "", titles[event.type] || event.type));
-    if (milestoneCount > 1 && ["retrieval", "execution"].includes(event.type) && event.milestone_index != null) {
-      head.append(element("span", "label", `Plan item ${event.milestone_index + 1}/${milestoneCount}`));
-    }
     if (event.at) head.append(element("time", "", new Date(event.at * 1000).toLocaleTimeString()));
     item.append(head);
     if (event.type !== "bootstrap" || event.stage_status === "running") item.append(eventBody(event));

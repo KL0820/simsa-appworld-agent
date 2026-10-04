@@ -11,6 +11,7 @@ PHASE_STAGE = {
     "COMPLETE": "evaluation",
 }
 RESULT_TYPES = {"plan", "retrieval", "execution", "control", "submission", "evaluation"}
+ITEM_STAGE_TYPES = {"retrieval", "execution", "control"}
 
 
 def _pending_stage(event: dict, stage_type: str) -> dict:
@@ -27,6 +28,42 @@ def _latest_running(stages: list[dict], stage_type: str) -> dict | None:
         if stage["type"] == stage_type and stage["stage_status"] == "running":
             return stage
     return None
+
+
+def _attach_plan_context(stages: list[dict]) -> None:
+    """Identify the plan item and outer loop cycle for each working stage."""
+    plan_items: list[dict] = []
+    cycles: dict[int, int] = {}
+    next_cycle: set[int] = set()
+    for stage in stages:
+        if stage["type"] == "plan" and isinstance(stage.get("milestones"), list):
+            plan_items = stage["milestones"]
+        if stage["type"] not in ITEM_STAGE_TYPES:
+            continue
+        index = stage.get("milestone_index")
+        if not isinstance(index, int) or not 0 <= index < len(plan_items):
+            continue
+        if stage["type"] in {"retrieval", "execution"}:
+            if index in next_cycle:
+                cycles[index] = cycles.get(index, 1) + 1
+                next_cycle.remove(index)
+            else:
+                cycles.setdefault(index, 1)
+        item = plan_items[index]
+        if not isinstance(item, dict):
+            continue
+        stage["plan_item"] = {
+            "number": index + 1,
+            "total": len(plan_items),
+            "app": item.get("app", ""),
+            "task": item.get("task", ""),
+            "cycle": cycles.get(index, 1),
+        }
+        revised = stage.get("revised_milestones")
+        if stage["type"] == "control" and isinstance(revised, list):
+            plan_items = revised
+        if stage["type"] == "control" and stage["stage_status"] == "complete":
+            next_cycle.add(index)
 
 
 def build_stages(events: list[dict]) -> list[dict]:
@@ -66,4 +103,5 @@ def build_stages(events: list[dict]) -> list[dict]:
             continue
         if event_type == "error":
             stages.append({**event, "stage_status": "error"})
+    _attach_plan_context(stages)
     return stages

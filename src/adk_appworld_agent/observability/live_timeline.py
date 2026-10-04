@@ -101,11 +101,13 @@ class LiveTimeline:
                 milestone_done=bool(payload.get("milestone_done")),
             )
         elif "next_action" in payload:
-            self.emit(
-                "control",
-                action=_short(payload.get("next_action"), 120),
-                reason=_short(payload.get("rationale")),
-            )
+            details = {
+                "action": _short(payload.get("next_action"), 120),
+                "reason": _short(payload.get("rationale")),
+            }
+            if isinstance(payload.get("revised_milestones"), list):
+                details["revised_milestones"] = _milestones(payload["revised_milestones"])
+            self.emit("control", **details)
         elif phase == "SUBMIT":
             self.emit("submission", status=_short(payload.get("status"), 120))
 

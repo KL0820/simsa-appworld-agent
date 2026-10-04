@@ -66,7 +66,11 @@ works; it is not a replay of the preview.
 
 The local page shows a loading state while the model plans, then its task
 breakdown, candidate API names, API names actually called, execution summaries,
-control decisions, and the independent evaluator result. The default task is
+control decisions, and the independent evaluator result. It polls local events
+about every 0.6 seconds: each stage appears as it starts and fills in when that
+stage returns, not token by token. Retrieval, execution, and progress decisions
+are grouped under the plan item they are working on; another pass over the same
+item is labeled as a new cycle. The default task is
 `13547f5_2`; choose another installed task with `--task-id`. A run can take
 minutes. The launcher starts and stops AppWorld's RPC process and writes logs,
 a summary, and a static `task_view.html` under the git-ignored `logs/` folder.

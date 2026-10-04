@@ -21,13 +21,14 @@ def test_live_timeline_allowlists_fields(tmp_path: Path) -> None:
     timeline.record_output("PLAN", {"payload": {"tasks": [{"app": "catalog", "task": "Find products"}], "private": "secret-marker"}})
     timeline.record_output("FIND", {"payload": {"matched_apps": ["catalog"], "candidate_apis": [{"app": "catalog", "name": "search_products", "description": "secret-marker"}]}})
     timeline.record_output("EXECUTE", {"payload": {"code_execute": "secret-marker", "executor_result": {"summary": "Found products", "private": "secret-marker"}, "tool_call_count": 1, "milestone_done": True}})
-    timeline.record_output("PLAN", {"payload": {"next_action": "continue", "rationale": "One step remains", "private": "secret-marker"}})
+    timeline.record_output("PLAN", {"payload": {"next_action": "continue", "rationale": "One step remains", "revised_milestones": [{"app": "catalog", "task": "Retry safely", "private": "secret-marker"}], "private": "secret-marker"}})
     timeline.record_result({"status": "COMPLETED", "eval": {"passed": 2, "total": 2, "passed_all": True}, "private": "secret-marker"})
 
     events = read_events(path)
     assert [event["type"] for event in events] == ["phase_started", "plan", "retrieval", "execution", "control", "evaluation"]
     assert events[2]["apis"] == ["catalog.search_products"]
     assert events[3]["called_apis"] == ["catalog.search_products"]
+    assert events[4]["revised_milestones"] == [{"app": "catalog", "task": "Retry safely"}]
     assert "secret-marker" not in path.read_text(encoding="utf-8")
 
 
@@ -82,6 +83,11 @@ def test_stages_pair_loading_with_result_without_duplicate_bootstrap() -> None:
     assert stages[0]["at"] == 2
     assert stages[1]["milestones"] == [{"app": "phone", "task": "Send text"}]
     assert stages[2]["milestone_index"] == 0
+    assert stages[2]["plan_item"] == {
+        "number": 1, "total": 1, "app": "phone", "task": "Send text", "cycle": 1
+    }
+    assert stages[3]["plan_item"] == stages[2]["plan_item"]
+    assert stages[4]["plan_item"] == stages[2]["plan_item"]
     assert stages[5]["status"] == "SUBMITTED"
 
 
@@ -118,3 +124,46 @@ def test_two_plan_items_keep_their_own_retrieval_and_execution() -> None:
         "plan", "retrieval", "execution", "control", "retrieval", "execution"
     ]
     assert [stage["milestone_index"] for stage in stages if stage["type"] in {"retrieval", "execution"}] == [0, 0, 1, 1]
+    assert [stage["plan_item"]["task"] for stage in stages if stage["type"] == "retrieval"] == ["First", "Second"]
+
+
+def test_repeating_the_same_plan_item_starts_another_cycle() -> None:
+    events = [
+        {"type": "plan", "milestones": [{"app": "spotify", "task": "Check playlists"}]},
+        {"type": "phase_started", "phase": "FIND", "milestone_index": 0},
+        {"type": "retrieval", "apis": ["spotify.search"]},
+        {"type": "phase_started", "phase": "EXECUTE", "milestone_index": 0},
+        {"type": "execution", "called_apis": ["spotify.search"]},
+        {"type": "phase_started", "phase": "PLAN", "milestone_index": 0},
+        {"type": "control", "action": "CONTINUE"},
+        {"type": "phase_started", "phase": "FIND", "milestone_index": 0},
+        {"type": "retrieval", "apis": ["spotify.get_playlist"]},
+    ]
+    stages = build_stages(events)
+    assert [stage["plan_item"]["cycle"] for stage in stages if stage["type"] == "retrieval"] == [1, 2]
+
+
+def test_retrieval_retry_without_control_stays_in_the_same_cycle() -> None:
+    stages = build_stages([
+        {"type": "plan", "milestones": [{"app": "spotify", "task": "Check playlists"}]},
+        {"type": "phase_started", "phase": "FIND", "milestone_index": 0},
+        {"type": "retrieval", "apis": []},
+        {"type": "phase_started", "phase": "FIND", "milestone_index": 0},
+        {"type": "retrieval", "apis": ["spotify.search"]},
+    ])
+    assert [stage["plan_item"]["cycle"] for stage in stages if stage["type"] == "retrieval"] == [1, 1]
+
+
+def test_revised_plan_changes_the_next_cycle_context() -> None:
+    events = [
+        {"type": "plan", "milestones": [{"app": "spotify", "task": "Initial goal"}]},
+        {"type": "phase_started", "phase": "FIND", "milestone_index": 0},
+        {"type": "retrieval", "apis": []},
+        {"type": "phase_started", "phase": "PLAN", "milestone_index": 0},
+        {"type": "control", "action": "RETRY", "revised_milestones": [{"app": "spotify", "task": "Revised goal"}]},
+        {"type": "phase_started", "phase": "FIND", "milestone_index": 0},
+    ]
+    stages = build_stages(events)
+    assert stages[-1]["stage_status"] == "running"
+    assert stages[-1]["plan_item"]["task"] == "Revised goal"
+    assert stages[-1]["plan_item"]["cycle"] == 2

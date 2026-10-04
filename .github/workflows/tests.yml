@@ -26,3 +26,8 @@ jobs:
           tests/test_demo_setup.py
           tests/test_live_dashboard.py
           tests/test_task_viewer.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test dashboard rendering
+        run: node tests/dashboard_render.test.cjs
