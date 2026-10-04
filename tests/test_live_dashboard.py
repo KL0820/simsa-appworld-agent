@@ -167,3 +167,14 @@ def test_revised_plan_changes_the_next_cycle_context() -> None:
     assert stages[-1]["stage_status"] == "running"
     assert stages[-1]["plan_item"]["task"] == "Revised goal"
     assert stages[-1]["plan_item"]["cycle"] == 2
+
+
+def test_control_without_phase_state_uses_the_current_plan_item() -> None:
+    stages = build_stages([
+        {"type": "plan", "milestones": [{"app": "catalog", "task": "Find product"}]},
+        {"type": "phase_started", "phase": "FIND", "milestone_index": 0},
+        {"type": "retrieval", "apis": ["catalog.search"]},
+        {"type": "control", "action": "SUBMIT"},
+    ])
+    assert stages[-1]["type"] == "control"
+    assert stages[-1]["plan_item"]["task"] == "Find product"

@@ -35,14 +35,18 @@ def _attach_plan_context(stages: list[dict]) -> None:
     plan_items: list[dict] = []
     cycles: dict[int, int] = {}
     next_cycle: set[int] = set()
+    active_index: int | None = None
     for stage in stages:
         if stage["type"] == "plan" and isinstance(stage.get("milestones"), list):
             plan_items = stage["milestones"]
         if stage["type"] not in ITEM_STAGE_TYPES:
             continue
         index = stage.get("milestone_index")
+        if not isinstance(index, int) and stage["type"] == "control":
+            index = active_index
         if not isinstance(index, int) or not 0 <= index < len(plan_items):
             continue
+        active_index = index
         if stage["type"] in {"retrieval", "execution"}:
             if index in next_cycle:
                 cycles[index] = cycles.get(index, 1) + 1
