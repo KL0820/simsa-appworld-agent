@@ -8,7 +8,7 @@ from urllib.request import urlopen
 from adk_appworld_agent.observability.live_timeline import LiveTimeline
 from scripts.demo_dashboard import make_server, read_events
 from scripts.run_metrics import extract_run_metrics
-from scripts.timeline_stages import build_stages
+from scripts.timeline_stages import build_display_blocks, build_stages
 
 
 def test_live_timeline_allowlists_fields(tmp_path: Path) -> None:
@@ -47,6 +47,7 @@ def test_dashboard_serves_preview_and_events_on_loopback(tmp_path: Path) -> None
         assert payload["mode"] == "preview"
         assert payload["events"][0]["phase"] == "PLAN"
         assert payload["stages"] == [{"type": "plan", "stage_status": "running", "at": None, "milestone_index": None}]
+        assert payload["blocks"] == [{"kind": "stage", "stage": payload["stages"][0]}]
         assert payload["metrics"] is None
         with urlopen(base + "/") as response:
             assert b"Agent timeline" in response.read()
@@ -188,6 +189,27 @@ def test_repeating_the_same_plan_item_starts_another_cycle() -> None:
     ]
     stages = build_stages(events)
     assert [stage["plan_item"]["cycle"] for stage in stages if stage["type"] == "retrieval"] == [1, 2]
+    blocks = build_display_blocks(stages)
+    assert [block["kind"] for block in blocks] == ["stage", "plan_item"]
+    assert blocks[1]["item"]["task"] == "Check playlists"
+    assert [cycle["number"] for cycle in blocks[1]["cycles"]] == [1, 2]
+    assert [[stage["type"] for stage in cycle["stages"]] for cycle in blocks[1]["cycles"]] == [
+        ["retrieval", "execution", "control"], ["retrieval"]
+    ]
+
+
+def test_display_blocks_separate_plan_items_and_final_submission() -> None:
+    stages = build_stages([
+        {"type": "plan", "milestones": [{"task": "First"}, {"task": "Second"}]},
+        {"type": "retrieval", "milestone_index": 0},
+        {"type": "control", "milestone_index": 0, "action": "CONTINUE"},
+        {"type": "retrieval", "milestone_index": 1},
+        {"type": "submission", "status": "SUBMITTED"},
+    ])
+    blocks = build_display_blocks(stages)
+    assert [block["kind"] for block in blocks] == ["stage", "plan_item", "plan_item", "stage"]
+    assert [block["item"]["task"] for block in blocks[1:3]] == ["First", "Second"]
+    assert blocks[-1]["stage"]["type"] == "submission"
 
 
 def test_retrieval_retry_without_control_stays_in_the_same_cycle() -> None:

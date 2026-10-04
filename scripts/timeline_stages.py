@@ -109,3 +109,24 @@ def build_stages(events: list[dict]) -> list[dict]:
             stages.append({**event, "stage_status": "error"})
     _attach_plan_context(stages)
     return stages
+
+
+def build_display_blocks(stages: list[dict]) -> list[dict]:
+    """Nest each work item's repeated cycles below one visible plan item."""
+    blocks: list[dict] = []
+    for stage in stages:
+        item = stage.get("plan_item")
+        if not isinstance(item, dict):
+            blocks.append({"kind": "stage", "stage": stage})
+            continue
+
+        previous = blocks[-1] if blocks else None
+        if previous is None or previous["kind"] != "plan_item" or previous["item"]["number"] != item["number"]:
+            previous = {"kind": "plan_item", "item": item, "cycles": []}
+            blocks.append(previous)
+
+        cycles = previous["cycles"]
+        if not cycles or cycles[-1]["number"] != item["cycle"]:
+            cycles.append({"number": item["cycle"], "item": item, "stages": []})
+        cycles[-1]["stages"].append(stage)
+    return blocks

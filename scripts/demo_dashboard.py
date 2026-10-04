@@ -7,7 +7,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from scripts.timeline_stages import build_stages
+from scripts.timeline_stages import build_display_blocks, build_stages
 from scripts.run_metrics import extract_run_metrics
 
 
@@ -56,12 +56,14 @@ def make_server(
             route = urlsplit(self.path).path
             if route == "/api/events":
                 events = read_events(timeline_path)
+                stages = build_stages(events)
                 recorded = next((event for event in reversed(events) if event.get("type") == "metrics"), None)
                 body = json.dumps(
                     {
                         "mode": mode,
                         "events": events,
-                        "stages": build_stages(events),
+                        "stages": stages,
+                        "blocks": build_display_blocks(stages),
                         "metrics": recorded.get("values") if recorded else _summary_metrics(summary_path),
                     },
                     ensure_ascii=False,

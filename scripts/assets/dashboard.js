@@ -24,14 +24,6 @@ function addChips(parent, label, values) {
   parent.append(row);
 }
 
-function planItemMarker(item) {
-  const marker = element("li", "plan-item-marker");
-  const label = `PLAN ITEM ${item.number} OF ${item.total}${item.cycle > 1 ? ` · CYCLE ${item.cycle}` : ""}`;
-  marker.append(element("span", "label", label));
-  marker.append(element("strong", "", `${item.app ? item.app + " · " : ""}${item.task || "Unnamed plan item"}`));
-  return marker;
-}
-
 function formatCount(value) {
   return Number.isInteger(value) && value >= 0 ? value.toLocaleString("en-US") : "—";
 }
@@ -59,20 +51,19 @@ function renderMetrics(metrics) {
 function eventBody(event) {
   const body = element("div", "event-body");
   if (event.stage_status === "running") {
-    if (event.type === "retrieval" && event.plan_item?.task) addText(body, `Searching APIs for: ${event.plan_item.task}`);
-    if (event.type === "execution" && event.plan_item?.task) addText(body, `Executing: ${event.plan_item.task}`);
-    if (event.type === "control" && event.plan_item?.task) addText(body, `Checking progress on: ${event.plan_item.task}`);
     addText(body, "Working… this stage will update when the agent returns a result.");
     return body;
   }
   if (event.type === "plan") {
     const steps = Array.isArray(event.milestones) ? event.milestones : [];
     if (!steps.length) addText(body, "The agent did not provide a step list.");
-    const list = element("ol");
-    for (const step of steps) list.append(element("li", "", `${step.app ? step.app + " · " : ""}${step.task || "Unnamed step"}`));
-    body.append(list);
+    if (steps.length === 1) addText(body, "One plan item created. Its work is grouped below.");
+    if (steps.length > 1) {
+      const list = element("ol");
+      for (const step of steps) list.append(element("li", "", `${step.app ? step.app + " · " : ""}${step.task || "Unnamed step"}`));
+      body.append(list);
+    }
   } else if (event.type === "retrieval") {
-    if (event.plan_item?.task) addText(body, `APIs considered for: ${event.plan_item.task}`);
     addChips(body, "MATCHED APPS", event.apps);
     addChips(body, "CANDIDATE APIS", event.apis);
     if (event.apis?.length) addText(body, "Candidates considered here; the execution stage shows which APIs were actually called.");
@@ -95,6 +86,37 @@ function eventBody(event) {
   return body;
 }
 
+function renderStage(event, nested = false) {
+  const classes = `event ${nested ? "cycle-event " : ""}${event.stage_status === "running" ? "running" : "complete"}`;
+  const item = element("li", classes);
+  const head = element("div", "event-head");
+  head.append(element("strong", "", titles[event.type] || event.type));
+  if (event.at) head.append(element("time", "", new Date(event.at * 1000).toLocaleTimeString()));
+  item.append(head);
+  if (event.type !== "bootstrap" || event.stage_status === "running") item.append(eventBody(event));
+  return item;
+}
+
+function renderPlanGroup(block) {
+  const group = element("li", "plan-group");
+  const header = element("div", "plan-group-head");
+  header.append(element("span", "label", `PLAN ITEM ${block.item.number} OF ${block.item.total}`));
+  header.append(element("strong", "", `${block.item.app ? block.item.app + " · " : ""}${block.item.task || "Unnamed plan item"}`));
+  group.append(header);
+  for (const cycle of block.cycles) {
+    const round = element("section", "cycle");
+    const cycleHead = element("div", "cycle-head");
+    cycleHead.append(element("span", "cycle-number", `Cycle ${cycle.number}`));
+    if (cycle.item.task !== block.item.task) cycleHead.append(element("span", "cycle-revision", `Revised goal: ${cycle.item.task}`));
+    round.append(cycleHead);
+    const events = element("ol", "cycle-events");
+    for (const stage of cycle.stages) events.append(renderStage(stage, true));
+    round.append(events);
+    group.append(round);
+  }
+  return group;
+}
+
 function render(data) {
   const preview = data.mode === "preview";
   $("mode").textContent = preview ? "ILLUSTRATIVE PREVIEW" : (data.mode === "replay" ? "RECORDED LIVE RUN" : "LIVE MODEL RUN");
@@ -114,24 +136,23 @@ function render(data) {
   $("run-status").append(document.createTextNode(finished ? (last.type === "error" ? "Stopped" : "Finished") : "Agent working"));
   const timeline = $("timeline");
   timeline.replaceChildren();
-  const stages = data.stages || [];
-  let shownCycle = "";
-  for (const event of stages) {
-    if (event.plan_item) {
-      const item = event.plan_item;
-      const cycle = `${item.number}:${item.cycle}:${item.task}`;
-      if (cycle !== shownCycle) timeline.append(planItemMarker(item));
-      shownCycle = cycle;
+  const blocks = data.blocks || [];
+  let planItems = null;
+  for (const block of blocks) {
+    if (block.kind === "plan_item") {
+      (planItems || timeline).append(renderPlanGroup(block));
+      continue;
     }
-    const item = element("li", `event ${event.stage_status === "running" ? "running" : "complete"}`);
-    const head = element("div", "event-head");
-    head.append(element("strong", "", titles[event.type] || event.type));
-    if (event.at) head.append(element("time", "", new Date(event.at * 1000).toLocaleTimeString()));
-    item.append(head);
-    if (event.type !== "bootstrap" || event.stage_status === "running") item.append(eventBody(event));
-    timeline.append(item);
+    const stage = renderStage(block.stage);
+    timeline.append(stage);
+    planItems = null;
+    if (block.stage.type === "plan") {
+      stage.className += " plan-workflow";
+      planItems = element("ol", "plan-items");
+      stage.append(planItems);
+    }
   }
-  if (!stages.length) timeline.append(element("li", "event running", "Waiting for the agent to start…"));
+  if (!blocks.length) timeline.append(element("li", "event running", "Waiting for the agent to start…"));
   renderMetrics(data.metrics);
 }
 

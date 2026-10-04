@@ -54,44 +54,63 @@ vm.runInContext(source, context);
 
 const item = (number, total, task, cycle = 1) => ({ number, total, app: "spotify", task, cycle });
 const completed = (type, planItem = undefined) => ({ type, stage_status: "complete", plan_item: planItem });
+const stage = (value) => ({ kind: "stage", stage: value });
+const descendants = (node, className) => node.children.flatMap((child) => [
+  ...(child.className === className ? [child] : []), ...descendants(child, className),
+]);
+const group = (planItem, cycles) => ({
+  kind: "plan_item", item: planItem,
+  cycles: cycles.map(([number, stages]) => ({ number, item: item(planItem.number, planItem.total, planItem.task, number), stages })),
+});
 
 context.render({
   mode: "replay",
   events: [{ type: "task", task_id: "example", instruction: "Example" }, { type: "evaluation" }],
-  stages: [
-    { ...completed("plan"), milestones: [{ app: "spotify", task: "First" }, { app: "spotify", task: "Second" }] },
-    { ...completed("retrieval", item(1, 2, "First")), apis: ["spotify.search"] },
-    completed("execution", item(1, 2, "First")),
-    completed("control", item(1, 2, "First")),
-    { ...completed("retrieval", item(1, 2, "First", 2)), apis: ["spotify.get_playlist"] },
-    completed("retrieval", item(2, 2, "Second")),
+  blocks: [
+    stage({ ...completed("plan"), milestones: [{ app: "spotify", task: "First" }, { app: "spotify", task: "Second" }] }),
+    group(item(1, 2, "First"), [
+      [1, [
+        { ...completed("retrieval", item(1, 2, "First")), apis: ["spotify.search"] },
+        completed("execution", item(1, 2, "First")),
+        completed("control", item(1, 2, "First")),
+      ]],
+      [2, [{ ...completed("retrieval", item(1, 2, "First", 2)), apis: ["spotify.get_playlist"] }]],
+    ]),
+    group(item(2, 2, "Second"), [[1, [completed("retrieval", item(2, 2, "Second"))]]]),
   ],
 });
 
-const markers = nodes.timeline.children.filter((node) => node.className === "plan-item-marker");
-assert.equal(markers.length, 3);
-assert.match(markers[0].textContent, /PLAN ITEM 1 OF 2/);
-assert.match(markers[1].textContent, /CYCLE 2/);
-assert.match(markers[2].textContent, /PLAN ITEM 2 OF 2/);
-assert.match(nodes.timeline.textContent, /APIs considered for: First/);
-assert.doesNotMatch(nodes.timeline.textContent, /STEP 1/);
+const groups = descendants(nodes.timeline, "plan-group");
+assert.equal(groups.length, 2);
+assert.equal(nodes.timeline.children.length, 1);
+assert.equal(descendants(nodes.timeline.children[0], "plan-items").length, 1);
+assert.match(groups[0].textContent, /PLAN ITEM 1 OF 2/);
+assert.equal(groups[0].children.filter((node) => node.className === "cycle").length, 2);
+assert.match(groups[0].textContent, /Cycle 2/);
+assert.match(groups[1].textContent, /PLAN ITEM 2 OF 2/);
+assert.match(groups[0].textContent, /spotify.search/);
+assert.doesNotMatch(groups[0].textContent, /APIs considered for: First/);
 
 context.render({
   mode: "live",
   events: [{ type: "task", task_id: "example", instruction: "Example" }, { type: "phase_started", phase: "FIND" }],
-  stages: [
-    { ...completed("plan"), milestones: [{ app: "spotify", task: "First" }] },
-    { type: "retrieval", stage_status: "running", plan_item: item(1, 1, "First") },
+  blocks: [
+    stage({ ...completed("plan"), milestones: [{ app: "spotify", task: "First" }] }),
+    group(item(1, 1, "First"), [[1, [
+      { type: "retrieval", stage_status: "running", plan_item: item(1, 1, "First") },
+    ]]]),
   ],
 });
-assert.match(nodes.timeline.textContent, /Searching APIs for: First/);
-assert.equal(nodes.timeline.children.filter((node) => node.className === "plan-item-marker").length, 1);
+assert.match(nodes.timeline.textContent, /Find relevant APIs/);
+assert.match(nodes.timeline.textContent, /Working…/);
+assert.equal(nodes.timeline.textContent.match(/First/g).length, 1);
+assert.equal(descendants(nodes.timeline, "plan-group").length, 1);
 assert.equal(nodes["metrics-section"].hidden, true);
 
 context.render({
   mode: "replay",
   events: [{ type: "task", task_id: "example", instruction: "Example" }, { type: "metrics" }],
-  stages: [completed("evaluation")],
+  blocks: [stage(completed("evaluation"))],
   metrics: {
     duration_s: 69.555, llm_calls: 8, llm_call_attempts: 9,
     prompt_tokens: 27555, completion_tokens: 669,
