@@ -51,6 +51,7 @@ from adk_appworld_agent.observability.events import (
     subagent_completed_events,
 )
 from adk_appworld_agent.observability.ledger import LEDGER_KEY
+from adk_appworld_agent.observability.live_timeline import LiveTimeline
 from adk_appworld_agent.observability.log_files import (
     COMPACT_LOG_DETAIL,
     LOG_DETAIL_ENV,
@@ -555,6 +556,7 @@ def _event_progress_lines(
     seen_outputs: set[tuple[str, str, str]],
     last_state_line: str | None,
     terminal_bus: EventBus | None = None,
+    timeline: LiveTimeline | None = None,
 ) -> tuple[list[str], str | None]:
     if not event.actions:
         return [], last_state_line
@@ -572,6 +574,8 @@ def _event_progress_lines(
                 if key in seen_outputs:
                     continue
                 seen_outputs.add(key)
+                if timeline is not None:
+                    timeline.record_output(phase_name, item)
                 record = io_record_from_subagent_output(phase_name, item)
                 if terminal_bus is not None and record is not None:
                     terminal_bus.emit(
@@ -586,6 +590,8 @@ def _event_progress_lines(
 
     raw_state = delta.get(RUN_STATE_KEY)
     if isinstance(raw_state, dict):
+        if timeline is not None:
+            timeline.record_state(raw_state)
         state_line = _state_progress_line(raw_state)
         if state_line != last_state_line:
             lines.append(state_line)
@@ -755,6 +761,12 @@ async def _run(args: argparse.Namespace) -> int:
     trajectory_path = artifact_dir / "trajectory.jsonl"
     executor_path = artifact_dir / "executor.jsonl"
     sandbox_trace_path = artifact_dir / "sandbox_api_calls.jsonl"
+    timeline_path = os.getenv("SIMSA_PUBLIC_TIMELINE_PATH")
+    timeline = (
+        LiveTimeline(Path(timeline_path), sandbox_trace_path)
+        if timeline_path
+        else None
+    )
     tmp_executor = Path(
         tempfile.NamedTemporaryFile(
             prefix="executor_", suffix=".jsonl", delete=False
@@ -779,6 +791,8 @@ async def _run(args: argparse.Namespace) -> int:
     bootstrap = load_task(
         args.task_id, world_run_name, rpc_url=args.rpc_url, client=client
     )
+    if timeline is not None:
+        timeline.record_task(args.task_id, bootstrap.task_instruction)
     print(f"\nTask Instruction:\n{bootstrap.task_instruction}\n")
 
     AppWorldClientHolder.set_client(client)
@@ -815,6 +829,8 @@ async def _run(args: argparse.Namespace) -> int:
             bootstrap.task_instruction,
             bootstrap.task_datetime,
         )
+        if timeline is not None:
+            timeline.record_state(initial_state[RUN_STATE_KEY])
 
         session_service = InMemorySessionService()
         await session_service.create_session(
@@ -866,6 +882,7 @@ async def _run(args: argparse.Namespace) -> int:
                             seen_outputs=seen_outputs,
                             last_state_line=last_state_line,
                             terminal_bus=terminal_bus,
+                            timeline=timeline,
                         )
                         for line in progress_lines:
                             print(line, flush=True)
@@ -1095,6 +1112,8 @@ async def _run(args: argparse.Namespace) -> int:
             evaluation_report_path=evaluation_report_path,
             command=command_text,
         )
+        if timeline is not None:
+            timeline.record_result(task_summary)
         task_summary_sink = TaskSummaryMarkdownSink(log_dir)
         EventBus([task_summary_sink]).emit(
             TaskCompleted(

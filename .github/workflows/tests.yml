@@ -24,4 +24,5 @@ jobs:
           tests/test_variable_store.py
           tests/test_scenario_goal_completion.py
           tests/test_demo_setup.py
+          tests/test_live_dashboard.py
           tests/test_task_viewer.py

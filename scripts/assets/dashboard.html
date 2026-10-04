@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SIMSA · Task walkthrough</title>
+  <link rel="stylesheet" href="/dashboard.css">
+  <script src="/dashboard.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <div class="brand"><span class="brand-mark">S</span><div><strong>SIMSA</strong><small>Agent task walkthrough</small></div></div>
+      <span id="mode" class="mode">Loading</span>
+    </header>
+    <section class="intro">
+      <p class="eyebrow">ONE TASK · STEP BY STEP</p>
+      <h1>Follow what the agent<br>is doing.</h1>
+      <p id="mode-note" class="lede">Connecting to the local timeline…</p>
+    </section>
+    <section class="task-card" aria-labelledby="task-heading">
+      <div class="section-head"><span class="section-number">01</span><h2 id="task-heading">The task</h2><span id="task-id" class="task-id"></span></div>
+      <p id="task-text" class="task-text">Waiting for a task…</p>
+    </section>
+    <section class="journey" aria-labelledby="journey-heading">
+      <div class="section-head"><span class="section-number">02</span><h2 id="journey-heading">Agent timeline</h2><span id="run-status" class="run-status"><span class="spinner"></span> Starting</span></div>
+      <ol id="timeline" class="timeline" aria-live="polite"></ol>
+    </section>
+    <footer>Local-only viewer · raw prompts, API arguments, responses, and credentials are not intentionally displayed. Review task text before sharing.</footer>
+  </main>
+</body>
+</html>

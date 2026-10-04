@@ -11,36 +11,75 @@ fixed, hand-written prompt while retaining task completions. The thesis is
 available as a [thesis catalog record](https://hdl.handle.net/11296/k4pk4g),
 linked from the [NTUT CSIE thesis list](https://csie.ntut.edu.tw/p/406-1070-151927%2Cr2190.php?Lang=zh-tw).
 
-## Try one task
+## First look: Python only
 
-This is a benchmark prototype, not a hosted chatbot. A live task needs both
-AppWorld's source/data and a Gemini API key (or configured Vertex AI access).
-Model calls may incur charges. The walkthrough is generated from the **actual
-run**, not a pre-scripted animation.
-
-1. Install AppWorld and its task data following the [official setup guide](https://github.com/StonyBrookNLP/appworld/blob/main/README.md#installation).
-2. Install this project's dependencies: `uv sync --frozen --extra dev --extra runtime`.
-3. Copy `.env.example` to `.env`; set `APPWORLD_ROOT` and `GOOGLE_API_KEY`.
-   Keep `.env` private. If AppWorld uses a different Python environment, set
-   `APPWORLD_PYTHON` too.
-4. From this repository, run:
+Clone the repository and start the local viewer. Python 3.12 or newer is enough
+for this **illustrative preview**: it does not install packages, call a model,
+or run an AppWorld task.
 
 ```bash
-uv run python -m scripts.demo
+git clone https://github.com/KL0820/simsa-appworld-agent.git
+cd simsa-appworld-agent
+python3 -m scripts.demo --preview
 ```
 
-The launcher starts a local AppWorld RPC process, runs one previously tested
-task (`13547f5_2`), stops the process, and prints paths to a task summary and
-`task_view.html`. Open that HTML file in a browser to see the plan, retrieved
-APIs, executed APIs, and evaluator outcome. A different installed task can be
-selected with `--task-id`. Runs are under the git-ignored `logs/` directory.
-The local RPC service is bound to `127.0.0.1` only. Review task text before
-sharing a generated page; the page intentionally omits raw prompts, API
-arguments, model responses, and credentials.
+The browser should open a `127.0.0.1` page. If it does not, open the printed
+URL yourself. It shows a synthetic task progressing through planning, candidate
+API retrieval, execution, progress control, and submission. The amber
+**ILLUSTRATIVE PREVIEW** label distinguishes it from an actual run. Leave the
+command running to keep the page open; press Ctrl-C when finished.
 
-If AppWorld or a model key is unavailable, the [recorded task](docs/example-run.md)
-shows a condensed, real execution. The [reproduction guide](docs/reproduction.md)
-has the longer setup and five-task smoke command.
+## Run a real task
+
+This is a benchmark prototype, not a hosted chatbot. A live run needs
+AppWorld's **source checkout and task data** plus a Gemini API key or Vertex AI
+access. Model calls may incur charges. The viewer updates as the real agent
+works; it is not a replay of the preview.
+
+1. Install [AppWorld from source](https://github.com/StonyBrookNLP/appworld/blob/main/README.md#installation), including its `git lfs`, `appworld install --repo`, and `appworld download data` steps. Use an AppWorld checkout with `src/appworld` and `data` directories. For example, alongside this repository on macOS/Linux:
+
+   ```bash
+   git lfs install
+   git clone https://github.com/StonyBrookNLP/appworld.git ../appworld
+   cd ../appworld
+   python3 -m venv .venv
+   .venv/bin/python -m pip install -e .
+   .venv/bin/appworld install --repo
+   .venv/bin/appworld download data
+   cd ../simsa-appworld-agent
+   ```
+
+2. Install this project's packages in its own environment:
+
+   ```bash
+   python3 -m venv .venv
+   .venv/bin/python -m pip install -e '.[dev,runtime]'
+   ```
+
+3. Copy `.env.example` to `.env`. Set `APPWORLD_ROOT` to the **absolute path** of the AppWorld checkout and set `GOOGLE_API_KEY`. If AppWorld's interpreter is not at `APPWORLD_ROOT/.venv/bin/python`, set `APPWORLD_PYTHON` too. Keep `.env` private. The example file also describes the Vertex AI alternative.
+
+4. Start one actual task:
+
+   ```bash
+   .venv/bin/python -m scripts.demo --live
+   ```
+
+The local page shows a loading state while the model plans, then its task
+breakdown, candidate API names, API names actually called, execution summaries,
+control decisions, and the independent evaluator result. The default task is
+`13547f5_2`; choose another installed task with `--task-id`. A run can take
+minutes. The launcher starts and stops AppWorld's RPC process and writes logs,
+a summary, and a static `task_view.html` under the git-ignored `logs/` folder.
+You can later reopen the timeline without spending model calls:
+`.venv/bin/python -m scripts.demo --replay logs/dashboard_.../events.jsonl`
+(replace the path with the one from your run under `logs/`).
+Both HTTP services bind to `127.0.0.1` only. The live page omits raw prompts,
+API arguments and response bodies, but task and step text can still be
+sensitive: review it before sharing screenshots or generated files.
+
+The [recorded task](docs/example-run.md) shows a condensed actual execution,
+and the [reproduction guide](docs/reproduction.md) covers the longer experiment
+setup and five-task smoke command.
 
 ## What the experiments showed
 
