@@ -29,7 +29,11 @@ class FakeNode {
   }
 }
 
-const ids = ["mode", "mode-note", "task-id", "task-text", "run-status", "timeline"];
+const ids = [
+  "mode", "mode-note", "task-id", "task-text", "run-status", "timeline",
+  "metrics-section", "metric-duration", "metric-calls", "metric-attempts",
+  "metric-tokens", "metric-prompt", "metric-completion", "metric-thoughts",
+];
 const nodes = Object.fromEntries(ids.map((id) => [id, new FakeNode()]));
 const context = {
   document: {
@@ -82,5 +86,23 @@ context.render({
 });
 assert.match(nodes.timeline.textContent, /Searching APIs for: First/);
 assert.equal(nodes.timeline.children.filter((node) => node.className === "plan-item-marker").length, 1);
+assert.equal(nodes["metrics-section"].hidden, true);
+
+context.render({
+  mode: "replay",
+  events: [{ type: "task", task_id: "example", instruction: "Example" }, { type: "metrics" }],
+  stages: [completed("evaluation")],
+  metrics: {
+    duration_s: 69.555, llm_calls: 8, llm_call_attempts: 9,
+    prompt_tokens: 27555, completion_tokens: 669,
+    thoughts_tokens: 2969, total_tokens: 31193,
+  },
+});
+assert.equal(nodes["metrics-section"].hidden, false);
+assert.equal(nodes["metric-duration"].textContent, "1m 9.6s");
+assert.equal(nodes["metric-calls"].textContent, "8");
+assert.equal(nodes["metric-attempts"].textContent, "9 attempts");
+assert.equal(nodes["metric-tokens"].textContent, "31,193");
+assert.equal(nodes["metric-prompt"].textContent, "27,555");
 
 console.log("Dashboard plan-item grouping passed");

@@ -8,6 +8,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from scripts.timeline_stages import build_stages
+from scripts.run_metrics import extract_run_metrics
 
 
 ASSETS = Path(__file__).resolve().parent / "assets"
@@ -33,7 +34,19 @@ def read_events(path: Path) -> list[dict]:
     return events
 
 
-def make_server(timeline_path: Path, *, mode: str, port: int = 0) -> ThreadingHTTPServer:
+def _summary_metrics(path: Path | None) -> dict | None:
+    if path is None or not path.is_file():
+        return None
+    try:
+        summary = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    return extract_run_metrics(summary) if isinstance(summary, dict) else None
+
+
+def make_server(
+    timeline_path: Path, *, mode: str, port: int = 0, summary_path: Path | None = None
+) -> ThreadingHTTPServer:
     """Bind a dashboard on loopback; all browser content stays on this machine."""
     if mode not in {"preview", "live", "replay"}:
         raise ValueError("mode must be preview, live, or replay")
@@ -43,8 +56,14 @@ def make_server(timeline_path: Path, *, mode: str, port: int = 0) -> ThreadingHT
             route = urlsplit(self.path).path
             if route == "/api/events":
                 events = read_events(timeline_path)
+                recorded = next((event for event in reversed(events) if event.get("type") == "metrics"), None)
                 body = json.dumps(
-                    {"mode": mode, "events": events, "stages": build_stages(events)},
+                    {
+                        "mode": mode,
+                        "events": events,
+                        "stages": build_stages(events),
+                        "metrics": recorded.get("values") if recorded else _summary_metrics(summary_path),
+                    },
                     ensure_ascii=False,
                 ).encode("utf-8")
                 self._reply(body, "application/json; charset=utf-8")

@@ -70,7 +70,9 @@ control decisions, and the independent evaluator result. It polls local events
 about every 0.6 seconds: each stage appears as it starts and fills in when that
 stage returns, not token by token. Retrieval, execution, and progress decisions
 are grouped under the plan item they are working on; another pass over the same
-item is labeled as a new cycle. The default task is
+item is labeled as a new cycle. After a real task completes, section 03 shows
+task wall time, recorded LLM calls, and token counts. These subagent aggregates
+are not complete billing or a cost estimate. The default task is
 `13547f5_2`; choose another installed task with `--task-id`. A run can take
 minutes. The launcher starts and stops AppWorld's RPC process and writes logs,
 a summary, and a static `task_view.html` under the git-ignored `logs/` folder.
@@ -81,6 +83,8 @@ item. To observe several plan items and control decisions, try
 You can later reopen the timeline without spending model calls:
 `.venv/bin/python -m scripts.demo --replay logs/dashboard_.../events.jsonl`
 (replace the path with the one from your run under `logs/`).
+For an older timeline made before metrics were recorded, pass its matching
+`task_summary.json` with `--summary` to fill section 03.
 Both HTTP services bind to `127.0.0.1` only. The live page omits raw prompts,
 API arguments and response bodies, but task and step text can still be
 sensitive: review it before sharing screenshots or generated files.

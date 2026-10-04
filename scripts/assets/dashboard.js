@@ -32,6 +32,30 @@ function planItemMarker(item) {
   return marker;
 }
 
+function formatCount(value) {
+  return Number.isInteger(value) && value >= 0 ? value.toLocaleString("en-US") : "—";
+}
+
+function formatDuration(seconds) {
+  if (typeof seconds !== "number" || !Number.isFinite(seconds) || seconds < 0) return "—";
+  const minutes = Math.floor(seconds / 60);
+  const remainder = (seconds % 60).toFixed(1);
+  return minutes ? `${minutes}m ${remainder}s` : `${remainder}s`;
+}
+
+function renderMetrics(metrics) {
+  $("metrics-section").hidden = !metrics;
+  if (!metrics) return;
+  $("metric-duration").textContent = formatDuration(metrics.duration_s);
+  $("metric-calls").textContent = formatCount(metrics.llm_calls);
+  $("metric-attempts").textContent = Number.isInteger(metrics.llm_call_attempts)
+    ? `${formatCount(metrics.llm_call_attempts)} attempts` : "Attempts unavailable";
+  $("metric-tokens").textContent = formatCount(metrics.total_tokens);
+  $("metric-prompt").textContent = formatCount(metrics.prompt_tokens);
+  $("metric-completion").textContent = formatCount(metrics.completion_tokens);
+  $("metric-thoughts").textContent = formatCount(metrics.thoughts_tokens);
+}
+
 function eventBody(event) {
   const body = element("div", "event-body");
   if (event.stage_status === "running") {
@@ -84,7 +108,7 @@ function render(data) {
     $("task-text").textContent = task.instruction || "No task text available.";
   }
   const last = data.events.at(-1);
-  const finished = last && ["evaluation", "error", "preview_complete"].includes(last.type);
+  const finished = last && ["evaluation", "metrics", "error", "preview_complete"].includes(last.type);
   $("run-status").replaceChildren();
   if (!finished) $("run-status").append(element("span", "spinner"));
   $("run-status").append(document.createTextNode(finished ? (last.type === "error" ? "Stopped" : "Finished") : "Agent working"));
@@ -108,6 +132,7 @@ function render(data) {
     timeline.append(item);
   }
   if (!stages.length) timeline.append(element("li", "event running", "Waiting for the agent to start…"));
+  renderMetrics(data.metrics);
 }
 
 async function refresh() {

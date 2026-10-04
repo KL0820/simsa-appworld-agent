@@ -16,6 +16,7 @@ from datetime import datetime
 from pathlib import Path
 
 from scripts.demo_dashboard import make_server, read_events
+from scripts.run_metrics import extract_run_metrics
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -139,6 +140,10 @@ def _run_live(task_id: str, timeline_path: Path) -> int:
                 server.wait()
     summary_path = run_dir / task_id / "artifacts" / "task_summary.json"
     if summary_path.is_file():
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+        metrics = extract_run_metrics(summary)
+        if metrics is not None:
+            _append_event(timeline_path, "metrics", values=metrics)
         view_path = build_viewer(summary_path, run_dir / task_id / "task_view.html")
         print(f"\nStatic walkthrough: {view_path}", flush=True)
         print(f"Task summary: {summary_path}", flush=True)
@@ -185,11 +190,11 @@ def _serve(mode: str, task_id: str, *, open_browser: bool, exit_after_run: bool)
     return result["code"]
 
 
-def _serve_replay(path: Path, *, open_browser: bool, port: int) -> int:
+def _serve_replay(path: Path, *, open_browser: bool, port: int, summary_path: Path | None) -> int:
     if not path.is_file() or not read_events(path):
         print(f"No timeline events found at {path}", file=sys.stderr)
         return 2
-    server = make_server(path, mode="replay", port=port)
+    server = make_server(path, mode="replay", port=port, summary_path=summary_path)
     url = f"http://127.0.0.1:{server.server_port}/"
     print(f"RECORDED LIVE RUN: {url}", flush=True)
     if open_browser:
@@ -212,10 +217,11 @@ def main() -> int:
     parser.add_argument("--task-id", default=DEFAULT_TASK_ID, help="AppWorld task for --live")
     parser.add_argument("--no-open", action="store_true", help="Do not open the system browser")
     parser.add_argument("--port", type=int, default=0, help="Local port for --replay (default: automatic)")
+    parser.add_argument("--summary", type=Path, help="Task summary JSON for metrics in an older replay")
     parser.add_argument("--exit-after-run", action="store_true", help="Exit when the task finishes (for automation)")
     args = parser.parse_args()
     if args.replay is not None:
-        return _serve_replay(args.replay, open_browser=not args.no_open, port=args.port)
+        return _serve_replay(args.replay, open_browser=not args.no_open, port=args.port, summary_path=args.summary)
     return _serve("preview" if args.preview else "live", args.task_id, open_browser=not args.no_open, exit_after_run=args.exit_after_run)
 
 

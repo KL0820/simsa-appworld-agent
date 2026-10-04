@@ -7,6 +7,7 @@ from urllib.request import urlopen
 
 from adk_appworld_agent.observability.live_timeline import LiveTimeline
 from scripts.demo_dashboard import make_server, read_events
+from scripts.run_metrics import extract_run_metrics
 from scripts.timeline_stages import build_stages
 
 
@@ -46,10 +47,56 @@ def test_dashboard_serves_preview_and_events_on_loopback(tmp_path: Path) -> None
         assert payload["mode"] == "preview"
         assert payload["events"][0]["phase"] == "PLAN"
         assert payload["stages"] == [{"type": "plan", "stage_status": "running", "at": None, "milestone_index": None}]
+        assert payload["metrics"] is None
         with urlopen(base + "/") as response:
             assert b"Agent timeline" in response.read()
         with urlopen(base + "/dashboard.js") as response:
             assert b"ILLUSTRATIVE PREVIEW" in response.read()
+    finally:
+        server.shutdown()
+        worker.join(timeout=3)
+        server.server_close()
+
+
+def test_metrics_allowlist_and_replay_summary_fallback(tmp_path: Path) -> None:
+    summary = {
+        "wall_s": 69.555,
+        "aggregate_metrics": {
+            "llm_calls": 8, "llm_call_attempts": 9,
+            "prompt_tokens": 27_555, "completion_tokens": 669,
+            "thoughts_tokens": 2_969, "total_tokens": 31_193,
+            "private": "secret-marker",
+        },
+        "api_key": "secret-marker",
+    }
+    expected = {
+        "duration_s": 69.555,
+        "llm_calls": 8, "llm_call_attempts": 9,
+        "prompt_tokens": 27_555, "completion_tokens": 669,
+        "thoughts_tokens": 2_969, "total_tokens": 31_193,
+    }
+    assert extract_run_metrics(summary) == expected
+    assert "secret-marker" not in json.dumps(expected)
+
+    timeline_path = tmp_path / "events.jsonl"
+    timeline_path.write_text(json.dumps({"type": "evaluation", "passed": 6, "total": 6}) + "\n", encoding="utf-8")
+    summary_path = tmp_path / "summary.json"
+    summary_path.write_text(json.dumps(summary), encoding="utf-8")
+    server = make_server(timeline_path, mode="replay", summary_path=summary_path)
+    worker = threading.Thread(target=server.serve_forever, daemon=True)
+    worker.start()
+    try:
+        with urlopen(f"http://127.0.0.1:{server.server_port}/api/events") as response:
+            payload = json.load(response)
+        assert payload["metrics"] == expected
+        assert "secret-marker" not in json.dumps(payload)
+        timeline_path.write_text(
+            json.dumps({"type": "metrics", "values": {"duration_s": 12.0, "llm_calls": 2}}) + "\n",
+            encoding="utf-8",
+        )
+        with urlopen(f"http://127.0.0.1:{server.server_port}/api/events") as response:
+            updated = json.load(response)
+        assert updated["metrics"] == {"duration_s": 12.0, "llm_calls": 2}
     finally:
         server.shutdown()
         worker.join(timeout=3)
