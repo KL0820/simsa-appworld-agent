@@ -45,7 +45,7 @@ deduction tests are marked skipped. The optional real embedding test also skips
 when sentence-transformers or its model is unavailable. These are separate from
 live AppWorld task success; see the evaluation report for exact validation counts.
 
-The exported snapshot passed **600 tests, with 6 skips**, in a fresh Python 3.13
+The current public checkout passed **604 tests, with 6 skips**, in a Python 3.13
 environment using the installed AppWorld catalog. Five skips concern the omitted
 training corpus; one concerns the optional embedding model. The research checkout's
 634-test count also includes parametrized corpus cases and other corpus checks

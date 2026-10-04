@@ -1,13 +1,46 @@
-# SIMSA: reusable skills for an API task agent
+# SIMSA: an API task agent with reusable skills
 
-This is the code behind my computer science master's thesis at National Taipei
-University of Technology. The agent works on AppWorld tasks: it plans what to do,
-finds relevant APIs, writes and runs Python in the benchmark sandbox, and checks
-whether the task is finished. A separate pipeline turns training trajectories
-into short, reusable instructions ("skills") for the agent's components.
+This is the code for my master's research at National Taipei University of
+Technology. Given an AppWorld task, the agent plans steps, finds APIs, executes
+Python in AppWorld's sandbox, and checks progress before submitting. A separate
+pipeline turns successful training trajectories into reusable instructions
+("skills") for planning and execution.
 
-The question I tested was practical: can selected skills replace much of the
-hand-written prompt without giving up task completions?
+The research question was whether selected skills could replace much of the
+fixed, hand-written prompt while retaining task completions. The thesis is
+available as a [thesis catalog record](https://hdl.handle.net/11296/k4pk4g),
+linked from the [NTUT CSIE thesis list](https://csie.ntut.edu.tw/p/406-1070-151927%2Cr2190.php?Lang=zh-tw).
+
+## Try one task
+
+This is a benchmark prototype, not a hosted chatbot. A live task needs both
+AppWorld's source/data and a Gemini API key (or configured Vertex AI access).
+Model calls may incur charges. The walkthrough is generated from the **actual
+run**, not a pre-scripted animation.
+
+1. Install AppWorld and its task data following the [official setup guide](https://github.com/StonyBrookNLP/appworld/blob/main/README.md#installation).
+2. Install this project's dependencies: `uv sync --frozen --extra dev --extra runtime`.
+3. Copy `.env.example` to `.env`; set `APPWORLD_ROOT` and `GOOGLE_API_KEY`.
+   Keep `.env` private. If AppWorld uses a different Python environment, set
+   `APPWORLD_PYTHON` too.
+4. From this repository, run:
+
+```bash
+uv run python -m scripts.demo
+```
+
+The launcher starts a local AppWorld RPC process, runs one previously tested
+task (`13547f5_2`), stops the process, and prints paths to a task summary and
+`task_view.html`. Open that HTML file in a browser to see the plan, retrieved
+APIs, executed APIs, and evaluator outcome. A different installed task can be
+selected with `--task-id`. Runs are under the git-ignored `logs/` directory.
+The local RPC service is bound to `127.0.0.1` only. Review task text before
+sharing a generated page; the page intentionally omits raw prompts, API
+arguments, model responses, and credentials.
+
+If AppWorld or a model key is unavailable, the [recorded task](docs/example-run.md)
+shows a condensed, real execution. The [reproduction guide](docs/reproduction.md)
+has the longer setup and five-task smoke command.
 
 ## What the experiments showed
 
@@ -51,10 +84,11 @@ AppWorld data:
 
 ```bash
 uv sync --frozen --extra dev --extra runtime
-uv run pytest -q tests/test_completion_gate.py tests/test_variable_store.py tests/test_scenario_goal_completion.py
+uv run pytest -q \
+  tests/test_completion_gate.py tests/test_variable_store.py \
+  tests/test_scenario_goal_completion.py tests/test_demo_setup.py tests/test_task_viewer.py
 ```
 
-Live tasks require a separate AppWorld installation and model credentials.
 The benchmark data, training trajectories, raw logs, and credentials are not
 included here.
 
