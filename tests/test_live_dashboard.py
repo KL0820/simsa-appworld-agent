@@ -7,6 +7,7 @@ from urllib.request import urlopen
 
 from adk_appworld_agent.observability.live_timeline import LiveTimeline
 from scripts.demo_dashboard import make_server, read_events
+from scripts.timeline_stages import build_stages
 
 
 def test_live_timeline_allowlists_fields(tmp_path: Path) -> None:
@@ -43,6 +44,7 @@ def test_dashboard_serves_preview_and_events_on_loopback(tmp_path: Path) -> None
             payload = json.load(response)
         assert payload["mode"] == "preview"
         assert payload["events"][0]["phase"] == "PLAN"
+        assert payload["stages"] == [{"type": "plan", "stage_status": "running", "at": None, "milestone_index": None}]
         with urlopen(base + "/") as response:
             assert b"Agent timeline" in response.read()
         with urlopen(base + "/dashboard.js") as response:
@@ -51,3 +53,68 @@ def test_dashboard_serves_preview_and_events_on_loopback(tmp_path: Path) -> None
         server.shutdown()
         worker.join(timeout=3)
         server.server_close()
+
+
+def test_stages_pair_loading_with_result_without_duplicate_bootstrap() -> None:
+    events = [
+        {"type": "phase_started", "phase": "BOOTSTRAP", "at": 1},
+        {"type": "task", "task_id": "example", "at": 2},
+        {"type": "phase_started", "phase": "BOOTSTRAP", "milestone_index": 0, "at": 3},
+        {"type": "phase_started", "phase": "PLAN", "milestone_index": 0, "at": 4},
+        {"type": "plan", "milestones": [{"app": "phone", "task": "Send text"}], "at": 5},
+        {"type": "phase_started", "phase": "FIND", "milestone_index": 0, "at": 6},
+        {"type": "retrieval", "apis": ["phone.search_contacts"], "at": 7},
+        {"type": "phase_started", "phase": "EXECUTE", "milestone_index": 0, "at": 8},
+        {"type": "execution", "called_apis": ["phone.search_contacts"], "at": 9},
+        {"type": "phase_started", "phase": "PLAN", "milestone_index": 0, "at": 10},
+        {"type": "control", "action": "SUBMIT", "at": 11},
+        {"type": "phase_started", "phase": "SUBMIT", "milestone_index": 0, "at": 12},
+        {"type": "submission", "status": "SUBMITTED", "at": 13},
+        {"type": "phase_started", "phase": "COMPLETE", "milestone_index": 0, "at": 14},
+        {"type": "evaluation", "passed": 6, "total": 6, "at": 15},
+    ]
+    stages = build_stages(events)
+
+    assert [stage["type"] for stage in stages] == [
+        "bootstrap", "plan", "retrieval", "execution", "control", "submission", "evaluation"
+    ]
+    assert all(stage["stage_status"] == "complete" for stage in stages)
+    assert stages[0]["at"] == 2
+    assert stages[1]["milestones"] == [{"app": "phone", "task": "Send text"}]
+    assert stages[2]["milestone_index"] == 0
+    assert stages[5]["status"] == "SUBMITTED"
+
+
+def test_pending_stage_is_replaced_when_result_arrives() -> None:
+    before = build_stages([
+        {"type": "phase_started", "phase": "PLAN", "at": 1},
+    ])
+    after = build_stages([
+        {"type": "phase_started", "phase": "PLAN", "at": 1},
+        {"type": "plan", "milestones": [{"task": "First"}], "at": 2},
+    ])
+    assert len(before) == len(after) == 1
+    assert before[0]["stage_status"] == "running"
+    assert after[0]["stage_status"] == "complete"
+
+
+def test_two_plan_items_keep_their_own_retrieval_and_execution() -> None:
+    events = [
+        {"type": "plan", "milestones": [{"task": "First"}, {"task": "Second"}]},
+        {"type": "phase_started", "phase": "FIND", "milestone_index": 0},
+        {"type": "retrieval", "apis": ["app.first"]},
+        {"type": "phase_started", "phase": "EXECUTE", "milestone_index": 0},
+        {"type": "execution", "called_apis": ["app.first"]},
+        {"type": "phase_started", "phase": "PLAN", "milestone_index": 0},
+        {"type": "control", "action": "CONTINUE"},
+        {"type": "phase_started", "phase": "FIND", "milestone_index": 1},
+        {"type": "retrieval", "apis": ["app.second"]},
+        {"type": "phase_started", "phase": "EXECUTE", "milestone_index": 1},
+        {"type": "execution", "called_apis": ["app.second"]},
+    ]
+    stages = build_stages(events)
+
+    assert [stage["type"] for stage in stages] == [
+        "plan", "retrieval", "execution", "control", "retrieval", "execution"
+    ]
+    assert [stage["milestone_index"] for stage in stages if stage["type"] in {"retrieval", "execution"}] == [0, 0, 1, 1]

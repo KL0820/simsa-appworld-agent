@@ -7,6 +7,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from scripts.timeline_stages import build_stages
+
 
 ASSETS = Path(__file__).resolve().parent / "assets"
 ASSET_TYPES = {
@@ -31,7 +33,7 @@ def read_events(path: Path) -> list[dict]:
     return events
 
 
-def make_server(timeline_path: Path, *, mode: str) -> ThreadingHTTPServer:
+def make_server(timeline_path: Path, *, mode: str, port: int = 0) -> ThreadingHTTPServer:
     """Bind a dashboard on loopback; all browser content stays on this machine."""
     if mode not in {"preview", "live", "replay"}:
         raise ValueError("mode must be preview, live, or replay")
@@ -40,8 +42,9 @@ def make_server(timeline_path: Path, *, mode: str) -> ThreadingHTTPServer:
         def do_GET(self) -> None:
             route = urlsplit(self.path).path
             if route == "/api/events":
+                events = read_events(timeline_path)
                 body = json.dumps(
-                    {"mode": mode, "events": read_events(timeline_path)},
+                    {"mode": mode, "events": events, "stages": build_stages(events)},
                     ensure_ascii=False,
                 ).encode("utf-8")
                 self._reply(body, "application/json; charset=utf-8")
@@ -66,4 +69,4 @@ def make_server(timeline_path: Path, *, mode: str) -> ThreadingHTTPServer:
         def log_message(self, format: str, *args: object) -> None:
             return
 
-    return ThreadingHTTPServer(("127.0.0.1", 0), Handler)
+    return ThreadingHTTPServer(("127.0.0.1", port), Handler)

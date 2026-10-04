@@ -70,6 +70,10 @@ control decisions, and the independent evaluator result. The default task is
 `13547f5_2`; choose another installed task with `--task-id`. A run can take
 minutes. The launcher starts and stops AppWorld's RPC process and writes logs,
 a summary, and a static `task_view.html` under the git-ignored `logs/` folder.
+The default task is deliberately short and usually produces just one plan
+item. To observe several plan items and control decisions, try
+`--task-id 09b0ee6_2`; that task took about five minutes in the
+[five-task smoke run](docs/evaluation.md), and live results may vary.
 You can later reopen the timeline without spending model calls:
 `.venv/bin/python -m scripts.demo --replay logs/dashboard_.../events.jsonl`
 (replace the path with the one from your run under `logs/`).

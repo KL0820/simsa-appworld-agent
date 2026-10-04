@@ -183,11 +183,11 @@ def _serve(mode: str, task_id: str, *, open_browser: bool, exit_after_run: bool)
     return result["code"]
 
 
-def _serve_replay(path: Path, *, open_browser: bool) -> int:
+def _serve_replay(path: Path, *, open_browser: bool, port: int) -> int:
     if not path.is_file() or not read_events(path):
         print(f"No timeline events found at {path}", file=sys.stderr)
         return 2
-    server = make_server(path, mode="replay")
+    server = make_server(path, mode="replay", port=port)
     url = f"http://127.0.0.1:{server.server_port}/"
     print(f"RECORDED LIVE RUN: {url}", flush=True)
     if open_browser:
@@ -209,10 +209,11 @@ def main() -> int:
     group.add_argument("--replay", type=Path, metavar="EVENTS_JSONL", help="View a locally recorded live run")
     parser.add_argument("--task-id", default=DEFAULT_TASK_ID, help="AppWorld task for --live")
     parser.add_argument("--no-open", action="store_true", help="Do not open the system browser")
+    parser.add_argument("--port", type=int, default=0, help="Local port for --replay (default: automatic)")
     parser.add_argument("--exit-after-run", action="store_true", help="Exit when the task finishes (for automation)")
     args = parser.parse_args()
     if args.replay is not None:
-        return _serve_replay(args.replay, open_browser=not args.no_open)
+        return _serve_replay(args.replay, open_browser=not args.no_open, port=args.port)
     return _serve("preview" if args.preview else "live", args.task_id, open_browser=not args.no_open, exit_after_run=args.exit_after_run)
 
 
