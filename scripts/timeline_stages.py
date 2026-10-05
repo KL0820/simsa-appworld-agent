@@ -30,6 +30,18 @@ def _latest_running(stages: list[dict], stage_type: str) -> dict | None:
     return None
 
 
+def _apply_plan_revision(plan_items: list[dict], index: int, stage: dict) -> list[dict]:
+    """Continuation revisions replace only the writable plan tail segment."""
+    revised = stage.get("revised_milestones")
+    action = str(stage.get("action", "")).upper()
+    if not isinstance(revised, list) or not revised or action not in {"RETRY", "ADVANCE"}:
+        return plan_items
+    if not all(isinstance(item, dict) and item.get("task") for item in revised):
+        return plan_items
+    start = index + (1 if action == "ADVANCE" else 0)
+    return plan_items[:start] + revised + plan_items[start + len(revised):]
+
+
 def _attach_plan_context(stages: list[dict]) -> None:
     """Identify the plan item and outer loop cycle for each working stage."""
     plan_items: list[dict] = []
@@ -63,9 +75,8 @@ def _attach_plan_context(stages: list[dict]) -> None:
             "task": item.get("task", ""),
             "cycle": cycles.get(index, 1),
         }
-        revised = stage.get("revised_milestones")
-        if stage["type"] == "control" and isinstance(revised, list):
-            plan_items = revised
+        if stage["type"] == "control" and stage["stage_status"] == "complete":
+            plan_items = _apply_plan_revision(plan_items, index, stage)
         if stage["type"] == "control" and stage["stage_status"] == "complete":
             next_cycle.add(index)
 

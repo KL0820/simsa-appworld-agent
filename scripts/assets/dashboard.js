@@ -57,9 +57,9 @@ function eventBody(event) {
   if (event.type === "plan") {
     const steps = Array.isArray(event.milestones) ? event.milestones : [];
     if (!steps.length) addText(body, "The agent did not provide a step list.");
-    if (steps.length === 1) addText(body, "One plan item created. Its work is grouped below.");
-    if (steps.length > 1) {
-      const list = element("ol");
+    if (steps.length) {
+      body.append(element("div", "label", "PLAN LIST"));
+      const list = element("ol", "plan-list");
       for (const step of steps) list.append(element("li", "", `${step.app ? step.app + " · " : ""}${step.task || "Unnamed step"}`));
       body.append(list);
     }
@@ -138,18 +138,26 @@ function render(data) {
   timeline.replaceChildren();
   const blocks = data.blocks || [];
   let planItems = null;
+  let planStage = null;
   for (const block of blocks) {
     if (block.kind === "plan_item") {
+      if (!planItems && planStage) {
+        const cycles = element("section", "plan-cycles");
+        cycles.append(element("h3", "plan-cycles-title", "Execution cycles"));
+        planItems = element("ol", "plan-items");
+        cycles.append(planItems);
+        planStage.append(cycles);
+      }
       (planItems || timeline).append(renderPlanGroup(block));
       continue;
     }
     const stage = renderStage(block.stage);
     timeline.append(stage);
     planItems = null;
+    planStage = null;
     if (block.stage.type === "plan") {
       stage.className += " plan-workflow";
-      planItems = element("ol", "plan-items");
-      stage.append(planItems);
+      planStage = stage;
     }
   }
   if (!blocks.length) timeline.append(element("li", "event running", "Waiting for the agent to start…"));

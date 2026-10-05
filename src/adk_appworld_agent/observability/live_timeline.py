@@ -23,7 +23,7 @@ def _milestones(tasks: object) -> list[dict[str, str]]:
     if not isinstance(tasks, list):
         return []
     return [
-        {"app": _short(task.get("app"), 80), "task": _short(task.get("task"))}
+        {"app": _short(task.get("app"), 80), "task": _short(task.get("task") or task.get("intent"))}
         for task in tasks
         if isinstance(task, dict)
     ]

@@ -83,6 +83,8 @@ context.render({
 const groups = descendants(nodes.timeline, "plan-group");
 assert.equal(groups.length, 2);
 assert.equal(nodes.timeline.children.length, 1);
+assert.equal(descendants(nodes.timeline.children[0], "plan-list").length, 1);
+assert.equal(descendants(nodes.timeline.children[0], "plan-cycles").length, 1);
 assert.equal(descendants(nodes.timeline.children[0], "plan-items").length, 1);
 assert.match(groups[0].textContent, /PLAN ITEM 1 OF 2/);
 assert.equal(groups[0].children.filter((node) => node.className === "cycle").length, 2);
@@ -103,7 +105,8 @@ context.render({
 });
 assert.match(nodes.timeline.textContent, /Find relevant APIs/);
 assert.match(nodes.timeline.textContent, /Working…/);
-assert.equal(nodes.timeline.textContent.match(/First/g).length, 1);
+assert.equal(descendants(nodes.timeline, "plan-list").length, 1);
+assert.equal(descendants(nodes.timeline, "plan-cycles").length, 1);
 assert.equal(descendants(nodes.timeline, "plan-group").length, 1);
 assert.equal(nodes["metrics-section"].hidden, true);
 

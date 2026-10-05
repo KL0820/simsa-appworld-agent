@@ -33,6 +33,18 @@ def test_live_timeline_allowlists_fields(tmp_path: Path) -> None:
     assert "secret-marker" not in path.read_text(encoding="utf-8")
 
 
+def test_live_timeline_reads_revised_milestone_intent(tmp_path: Path) -> None:
+    path = tmp_path / "events.jsonl"
+    timeline = LiveTimeline(path, tmp_path / "sandbox.jsonl")
+    timeline.record_output("PLAN", {"payload": {
+        "next_action": "RETRY",
+        "revised_milestones": [{"app": "spotify", "intent": "Collect all song details"}],
+    }})
+    assert read_events(path)[0]["revised_milestones"] == [
+        {"app": "spotify", "task": "Collect all song details"}
+    ]
+
+
 def test_dashboard_serves_preview_and_events_on_loopback(tmp_path: Path) -> None:
     timeline_path = tmp_path / "events.jsonl"
     timeline_path.write_text(json.dumps({"type": "phase_started", "phase": "PLAN"}) + "\n", encoding="utf-8")
@@ -236,6 +248,27 @@ def test_revised_plan_changes_the_next_cycle_context() -> None:
     assert stages[-1]["stage_status"] == "running"
     assert stages[-1]["plan_item"]["task"] == "Revised goal"
     assert stages[-1]["plan_item"]["cycle"] == 2
+
+
+def test_partial_revision_preserves_other_plan_items() -> None:
+    stages = build_stages([
+        {"type": "plan", "milestones": [
+            {"task": "First"}, {"task": "Second"}, {"task": "Third"},
+        ]},
+        {"type": "phase_started", "phase": "FIND", "milestone_index": 1},
+        {"type": "retrieval", "apis": []},
+        {"type": "control", "action": "RETRY", "revised_milestones": [{"task": "Second, revised"}]},
+        {"type": "phase_started", "phase": "FIND", "milestone_index": 1},
+        {"type": "retrieval", "apis": []},
+        {"type": "control", "action": "ADVANCE"},
+        {"type": "phase_started", "phase": "FIND", "milestone_index": 2},
+    ])
+    items = [stage["plan_item"] for stage in stages if stage.get("plan_item")]
+    assert [(item["number"], item["task"], item["cycle"]) for item in items] == [
+        (2, "Second", 1), (2, "Second", 1),
+        (2, "Second, revised", 2), (2, "Second, revised", 2),
+        (3, "Third", 1),
+    ]
 
 
 def test_control_without_phase_state_uses_the_current_plan_item() -> None:
