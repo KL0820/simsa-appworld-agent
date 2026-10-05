@@ -123,8 +123,13 @@ context.render({
 assert.equal(nodes["metrics-section"].hidden, false);
 assert.equal(nodes["metric-duration"].textContent, "1m 9.6s");
 assert.equal(nodes["metric-calls"].textContent, "8");
-assert.equal(nodes["metric-attempts"].textContent, "9 attempts");
+assert.equal(nodes["metric-attempts"].textContent, "9 attempts in total");
+assert.equal(nodes["metric-attempts"].hidden, false);
 assert.equal(nodes["metric-tokens"].textContent, "31,193");
 assert.equal(nodes["metric-prompt"].textContent, "27,555");
+
+context.renderMetrics({ llm_calls: 8, llm_call_attempts: 8 });
+assert.equal(nodes["metric-attempts"].hidden, true);
+assert.equal(nodes["metric-attempts"].textContent, "");
 
 console.log("Dashboard plan-item grouping passed");

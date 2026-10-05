@@ -27,18 +27,18 @@
       <ol id="timeline" class="timeline" aria-live="polite"></ol>
     </section>
     <section id="metrics-section" class="metrics-card" aria-labelledby="metrics-heading" hidden>
-      <div class="section-head"><span class="section-number">03</span><h2 id="metrics-heading">Run metrics</h2></div>
+      <div class="section-head"><span class="section-number">03</span><h2 id="metrics-heading">Run summary</h2></div>
       <div class="metric-grid">
-        <div class="metric"><span class="metric-label">Task duration</span><strong id="metric-duration">—</strong><small>After AppWorld startup</small></div>
-        <div class="metric"><span class="metric-label">LLM calls</span><strong id="metric-calls">—</strong><small id="metric-attempts">Attempts unavailable</small></div>
-        <div class="metric"><span class="metric-label">Recorded tokens</span><strong id="metric-tokens">—</strong><small>Subagent aggregate</small></div>
+        <div class="metric"><span class="metric-label">Run time</span><strong id="metric-duration">—</strong></div>
+        <div class="metric"><span class="metric-label">Model calls</span><strong id="metric-calls">—</strong><small id="metric-attempts" hidden></small></div>
+        <div class="metric"><span class="metric-label">Model tokens</span><strong id="metric-tokens">—</strong></div>
       </div>
       <div class="token-detail">
-        <span>Prompt <strong id="metric-prompt">—</strong></span>
-        <span>Completion <strong id="metric-completion">—</strong></span>
-        <span>Thinking <strong id="metric-thoughts">—</strong></span>
+        <span>Input <strong id="metric-prompt">—</strong></span>
+        <span>Output <strong id="metric-completion">—</strong></span>
+        <span>Reasoning <strong id="metric-thoughts">—</strong></span>
       </div>
-      <p class="metrics-note">Recorded subagent counters may omit skill selection and final-answer extraction or retries. Token counts are not a billing total or cost estimate.</p>
+      <p class="metrics-note">Calls and tokens cover recorded agent steps only; they are not billing totals.</p>
     </section>
     <footer>Local-only viewer · raw prompts, API arguments, responses, and credentials are not intentionally displayed. Review task text before sharing.</footer>
   </main>

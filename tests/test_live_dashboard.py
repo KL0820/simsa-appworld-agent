@@ -62,7 +62,10 @@ def test_dashboard_serves_preview_and_events_on_loopback(tmp_path: Path) -> None
         assert payload["blocks"] == [{"kind": "stage", "stage": payload["stages"][0]}]
         assert payload["metrics"] is None
         with urlopen(base + "/") as response:
-            assert b"Agent timeline" in response.read()
+            page = response.read()
+            assert b"Agent timeline" in page
+            assert b"Run summary" in page
+            assert b"Subagent aggregate" not in page
         with urlopen(base + "/dashboard.js") as response:
             assert b"ILLUSTRATIVE PREVIEW" in response.read()
     finally:

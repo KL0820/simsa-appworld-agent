@@ -40,8 +40,10 @@ function renderMetrics(metrics) {
   if (!metrics) return;
   $("metric-duration").textContent = formatDuration(metrics.duration_s);
   $("metric-calls").textContent = formatCount(metrics.llm_calls);
-  $("metric-attempts").textContent = Number.isInteger(metrics.llm_call_attempts)
-    ? `${formatCount(metrics.llm_call_attempts)} attempts` : "Attempts unavailable";
+  const attempts = $("metric-attempts");
+  attempts.hidden = !Number.isInteger(metrics.llm_call_attempts)
+    || metrics.llm_call_attempts <= metrics.llm_calls;
+  attempts.textContent = attempts.hidden ? "" : `${formatCount(metrics.llm_call_attempts)} attempts in total`;
   $("metric-tokens").textContent = formatCount(metrics.total_tokens);
   $("metric-prompt").textContent = formatCount(metrics.prompt_tokens);
   $("metric-completion").textContent = formatCount(metrics.completion_tokens);
